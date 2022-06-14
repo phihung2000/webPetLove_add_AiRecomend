@@ -1,0 +1,161 @@
+.logo-nav #logo img {
+	width: 25%;
+	height: 25%;
+}
+
+.logo-nav {
+	background-repeat: repeat-x;
+	display: block;
+	margin-top: 2%;
+}
+
+.logo-nav-left1 {
+	float: left;
+	margin-top: -1.5%;
+}
+
+/*-- logo */
+.logo-nav-left.animated.wow.zoomIn.animated img {
+	width: 100%;
+	height: 100%;
+	margin-top: -70%;
+	margin-bottom: -50%;
+}
+.logo-nav-center.animated.wow.zoomIn.animated {
+    width: 45%;
+    float: left;
+}
+.logo-nav-center.animated.wow.zoomIn.animated li {
+    direction: none;
+    font-weight: bold;
+    font-size: 18px;
+    color: #FF00FF;
+    list-style-type: none;
+    text-align: center;
+    align-items: center;
+    margin-top: 4%;
+}
+.header-grid-left.animated.wow.slideInLeft.animated {
+	margin-top: 2%;
+}
+
+.header-grid-right.animated.wow.slideInRight.animated {
+	margin-top: 2%;
+}
+/*-- end*/
+div#logo_menu {
+	background-color: white;
+}
+
+.sb-search {
+	top: 1%;
+	position: absolute;
+	right: -42%;
+	width: 0%;
+	min-width: 50px;
+	margin: 0;
+	height: 50px;
+	float: none;
+	overflow: hidden;
+	-webkit-transition: width 0.3s;
+	-moz-transition: width 0.3s;
+	transition: width 0.3s;
+	-webkit-backface-visibility: hidden;
+	background: none;
+}
+
+.sb-search-input {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	border: none;
+	outline: none;
+	background: #F5F5F5;
+	width: 100%;
+	height: 50px;
+	margin: 0;
+	z-index: 10;
+	font-size: 14px;
+	color: #999;
+	padding-left: 1em;
+	padding-right: 4em;
+}
+
+.sb-search-input::-webkit-input-placeholder {
+	color: #999;
+}
+
+.sb-search-input:-moz-placeholder {
+	color: #999;
+}
+
+.sb-search-input::-moz-placeholder {
+	color: #999;
+}
+
+.sb-search-input:-ms-input-placeholder {
+	color: #999;
+}
+
+.sb-icon-search, .sb-search-submit {
+	color: #999;
+	width: 50px;
+	height: 50px;
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding: 0;
+	margin: 0;
+	line-height: 85px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.sb-search-submit {
+	background: #fff url(../images/img-sp.png) no-repeat 7px -91px;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	/* IE 8 */
+	filter: alpha(opacity = 0); /* IE 5-7 */
+	color: transparent;
+	border: none;
+	outline: none;
+	z-index: -1;
+	-webkit-appearance: none;
+}
+
+.sb-icon-search {
+	background: #fff url(../images/img-sp.png) no-repeat 7px -91px;
+	z-index: 90;
+}
+/* Open state */
+.sb-search.sb-search-open, .no-js .sb-search {
+	width: 44%;
+}
+
+.sb-search.sb-search-open .sb-icon-search, .no-js .sb-search .sb-icon-search
+	{
+	background: #fff url(../images/img-sp.png) no-repeat 7px -91px;
+	color: #fff;
+	z-index: 11;
+}
+
+.sb-search.sb-search-open .sb-search-submit, .no-js .sb-search .sb-search-submit
+	{
+	z-index: 90;
+}
+/*-- search-ends --*/
+/*-- gior hàng --*/
+.cart.box_1 {
+	font-weight: bold;
+	font-size: 13px;
+}
+/*-- end */
+img#icon_shopping {
+    margin-top: -4%;
+    margin-left: 5%;
+}
+/* .active, .btn:hover {
+  background-color: #666;
+  color: white;
+} */

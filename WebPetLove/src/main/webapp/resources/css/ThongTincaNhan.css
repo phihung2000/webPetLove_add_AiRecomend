@@ -1,0 +1,43 @@
+form#information {
+    margin: 1em;
+    margin-top: 1em;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin: 30px;
+  	opacity: 0.8;
+  	filter: alpha(opacity=80);
+  	background-color: transparent;	
+}
+ .inf-content{
+    border:1px solid #DDDDDD;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.3);
+}
+.container.bootstrap.snippets.bootdey {
+    background-color: #EEEEEE;
+}
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+img.img-circle.img-thumbnail.isTooltip {
+    width: 100%;
+}
+.col-md-6 {
+    width: 60%;
+    margin-left: 6%;
+}	
+td {
+    border-bottom: 1px solid;
+}
+p.username_inf {
+    font-weight: bold;
+    text-align: center;
+    font-size: 24px;
+}
+                                               

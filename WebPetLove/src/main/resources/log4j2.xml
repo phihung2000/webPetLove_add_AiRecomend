@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<Configuration monitorInterval="60">
+	<Appenders>
+		<Console name="stdout" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1}.%M(%L) - %msg%n" />
+		</Console>
+		<RollingFile name="daily-file" fileName="webstore.log"
+			filePattern="daily-%d{yyyy-MM}/webstore-%d{yyyy-MM-dd}.log">
+			<PatternLayout
+				pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1}.%M(%L) - %msg%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Logger name="com.webstore.app" level="debug" additivity="false">
+			<appender-ref ref="stdout" />
+		</Logger>
+		<Logger name="org.springframework.data" level="debug"
+			additivity="false">
+			<appender-ref ref="stdout" />
+		</Logger>
+		<!-- <Logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="trace"
+			additivity="false">
+			<appender-ref ref="stdout" />
+		</Logger> -->
+		<Root level="info" additivity="false">
+			<appender-ref ref="stdout" />
+		</Root>
+	</Loggers>
+</Configuration>

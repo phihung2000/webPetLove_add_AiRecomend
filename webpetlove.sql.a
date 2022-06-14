@@ -1,0 +1,1336 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.0
+-- https://www.phpmyadmin.net/
+--
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th6 14, 2022 lúc 11:01 AM
+-- Phiên bản máy phục vụ: 10.4.19-MariaDB
+-- Phiên bản PHP: 8.0.6
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Cơ sở dữ liệu: `webpetlove`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `avgratings`
+--
+
+CREATE TABLE `avgratings` (
+  `id` bigint(20) NOT NULL,
+  `product_id` bigint(20) NOT NULL,
+  `avgrating` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `bill`
+--
+
+CREATE TABLE `bill` (
+  `bill_id` bigint(20) NOT NULL,
+  `user_id` bigint(20) DEFAULT NULL,
+  `total` double DEFAULT NULL,
+  `payment` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `date` datetime DEFAULT NULL ON UPDATE current_timestamp(),
+  `status` tinyint(11) NOT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `noti` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `bill`
+--
+
+INSERT INTO `bill` (`bill_id`, `user_id`, `total`, `payment`, `address`, `date`, `status`, `phone`, `noti`) VALUES
+(45466367, 1, 27500000, 'Thanh toán khi nhận hàng', 'test', '2018-06-12 22:38:41', 3, NULL, 1),
+(45466368, 1, 21000000, 'Thanh toán khi nhận hàng', 'fsdg', '2018-06-12 23:42:43', 3, '01652335156', 1),
+(45466369, 4, 12000000, 'Thanh toán khi nhận hàng', 'saddad', '2018-06-13 00:40:48', 3, '24235523532355', 1),
+(45466370, 4, 12000000, 'Thanh toán khi nhận hàng', 'gffgd', '2018-06-13 00:44:14', 3, 'hhdfdh', NULL),
+(45466371, 4, 28000000, 'Thanh toán khi nhận hàng', 'dssfsf', '2018-06-13 00:49:13', 3, '325255', 1),
+(45466372, 4, 41100000, 'Thanh toán khi nhận hàng', 'gfdgdg', '2021-10-27 21:54:56', 3, '120112112', 1),
+(45466373, 4, 894888888, 'Thanh toán khi nhận hàng', 'test', '2018-11-12 21:42:04', 3, '123123123', 1),
+(45466374, 1, 4500000, 'Thanh toán khi nhận hàng', 'ưe', '2021-10-27 21:54:59', 3, '5666', 1),
+(45466375, 1, 0, 'Chuyển khoản', 'kn', '2021-10-27 21:55:01', 2, 'jj', 1),
+(45466379, 54, 38000000, 'Thanh toán khi nhận hàng', '312/75 Chánh Lộc 7 , Phường Chánh Mỹ ', '2021-11-29 22:58:10', 3, '0396476443', 1),
+(45466380, 54, 50000000, 'Thanh toán khi nhận hàng', '312/75 Chánh Lộc 7 , Phường Chánh Mỹ ', '2021-11-29 22:58:13', 2, '0396476443', 1),
+(45466381, 54, 24000000, 'Thanh toán khi nhận hàng', '312/75 Chánh Lộc 7 , Phường Chánh Mỹ ', '2021-11-13 10:48:05', 3, '0396476443', 1),
+(45466383, 1, 22000000, 'Thanh toán khi nhận hàng', '312/75 Chánh Lộc 7 , Phường Chánh Mỹ ', '2021-11-29 23:29:08', 3, '039-647-6443', 1),
+(45466384, 54, 10000000, 'Thanh toán khi nhận hàng', '312/75 Chánh Lộc 7 , Phường Chánh Mỹ ', '2021-11-29 23:29:10', 2, '0396476443', 1),
+(45466387, 57, 30000000, 'Thanh toán khi nhận hàng', 'bình dương', '2022-03-18 16:13:57', 2, '0396476443', 1),
+(45466388, 57, 12000000, 'Thanh toán khi nhận hàng', 'bình dương', '2022-03-18 16:13:14', 3, '0396476443', 1),
+(45466389, 58, 36000000, 'Thanh toán khi nhận hàng', 'bình dương', '2022-05-14 00:12:03', 3, '0396476443', 1),
+(45466390, 58, 19000000, 'Thanh toán khi nhận hàng', 'bình dương', '2022-03-18 16:13:26', 2, '0396476445', 1),
+(45466391, 54, 70000000, 'Thanh toán khi nhận hàng', '312/75 Chánh Lộc 7 , Phường Chánh Mỹ ', '2022-05-14 07:09:06', 3, '0396476443', 1),
+(45466393, 61, 48000000, 'Thanh toán khi nhận hàng', '312/75 Chánh Lộc 7 , Phường Chánh Mỹ ', '2022-03-18 16:09:46', 3, '0396476443', 1),
+(45466394, 54, 900000, 'Thanh toán khi nhận hàng', '312/75 Chánh Lộc 7 , Phường Chánh Mỹ ', '2022-05-14 07:09:10', 2, '0396476443', 1),
+(45466396, 54, 41350000, 'Thanh toán khi nhận hàng', '312/75 Chánh Lộc 7 , Phường Chánh Mỹ ', '2022-04-15 23:35:52', 1, '0396476443', 1),
+(45466397, 3, 18550000, 'Thanh toán khi nhận hàng', '312/75 Chánh Lộc 7 , Phường Chánh Mỹ ', '2022-04-16 15:33:10', 1, '0396476443', 1),
+(45466398, 3, 40000000, 'Thanh toán khi nhận hàng', '123', '2022-04-16 15:37:38', 1, '0396476443', 1),
+(45466400, 54, 7000000, 'Thanh toán khi nhận hàng', '312/75 Chánh Lộc 7 , Phường Chánh Mỹ ', '2022-04-16 23:52:49', 1, '0396476443', 1),
+(45466401, 54, 7000000, 'Thanh toán khi nhận hàng', '123', '2022-04-16 23:56:53', 1, '039-647-6443', 1),
+(45466402, 54, 19000000, 'Thanh toán khi nhận hàng', '312/75 Chánh Lộc 7 , Phường Chánh Mỹ ', '2022-04-17 10:05:47', 1, '0396476443', 1),
+(45466403, 54, 18000000, 'Thanh toán khi nhận hàng', '123', '2022-04-17 10:11:08', 1, '0396476443', 1),
+(45466404, 54, 7000000, 'Thanh toán khi nhận hàng', '123', '2022-04-17 10:13:12', 1, '0396476443', 1),
+(45466405, 54, 7000000, 'Thanh toán khi nhận hàng', '312/75 Chánh Lộc 7 , Phường Chánh Mỹ ', '2022-04-17 10:44:02', 1, '0396476443', 1),
+(45466406, 54, 18000000, 'Thanh toán khi nhận hàng', '312/75 Chánh Lộc 7 , Phường Chánh Mỹ ', '2022-04-17 10:45:33', 1, '0396476443', 1),
+(45466407, 54, 22000000, 'Thanh toán khi nhận hàng', '312/75 Chánh Lộc 7 , Phường Chánh Mỹ ', '2022-04-17 10:48:51', 1, '0396476443', 1),
+(45466408, 54, 19000000, 'Thanh toán khi nhận hàng', '123', '2022-04-17 11:07:27', 1, '0396476443', 1),
+(45466409, 54, 33000000, 'Thanh toán khi nhận hàng', '123', '2022-04-17 11:08:43', 1, '0396476443', 1),
+(45466410, 54, 40000000, 'Thanh toán khi nhận hàng', '123', '2022-04-17 11:18:08', 1, '0396476443', 1),
+(45466411, 54, 7000000, 'Thanh toán khi nhận hàng', '312/75 Chánh Lộc 7 , Phường Chánh Mỹ ', '2022-04-17 11:22:27', 1, '0396476443', 1),
+(45466412, 54, 12000000, 'Thanh toán khi nhận hàng', '312/75 Chánh Lộc 7 , Phường Chánh Mỹ ', '2022-04-17 11:46:52', 1, '0396476443', 1),
+(45466413, 54, 40000000, 'Thanh toán khi nhận hàng', '312/75 Chánh Lộc 7 , Phường Chánh Mỹ ', '2022-04-17 11:48:42', 1, '0396476443', 1),
+(45466414, 54, 120500000, 'Thanh toán khi nhận hàng', '312/75 Chánh Lộc 7 , Phường Chánh Mỹ ', '2022-04-17 14:24:39', 1, '0396476443', 1),
+(45466415, 54, 29000000, 'Thanh toán khi nhận hàng', '312/75 Chánh Lộc 7 , Phường Chánh Mỹ ', '2022-04-17 14:27:19', 1, '0396476443', 1),
+(45466416, 54, 29000000, 'Thanh toán khi nhận hàng', '312/75 Chánh Lộc 7 , Phường Chánh Mỹ ', '2022-04-17 14:33:45', 1, '0 3 964 76 443', 1),
+(45466417, 54, 19000000, 'Thanh toán khi nhận hàng', '1', '2022-04-17 14:36:19', 1, '1234', 1),
+(45466418, 54, 30000000, 'Thanh toán khi nhận hàng', '123', '2022-04-17 14:36:38', 1, '0396476443', 1),
+(45466419, 54, 52500000, 'Thanh toán khi nhận hàng', '312/75 Chánh Lộc 7 , Phường Chánh Mỹ ', '2022-04-17 14:57:49', 1, '0396476443', 1),
+(45466420, 54, 360000, 'Thanh toán khi nhận hàng', '312/75 Chánh Lộc 7 , Phường Chánh Mỹ ', '2022-04-17 14:58:50', 1, '0396476443', 1),
+(45466421, 64, 10000000, 'Thanh toán khi nhận hàng', 'abc', '2022-04-21 16:55:40', 1, '0382768766', 1),
+(45466422, 54, 29500000, 'Thanh toán khi nhận hàng', 'abc', '2022-04-29 00:00:55', 1, '0382768766', 1),
+(45466423, 54, 29500000, 'Thanh toán khi nhận hàng', 'abc', '2022-04-29 00:01:37', 1, '0382768766', 1),
+(45466424, 54, 29500000, 'Thanh toán khi nhận hàng', 'abc', '2022-04-29 00:02:50', 1, '0382768766', 1),
+(45466425, 54, 63500000, 'Thanh toán khi nhận hàng', 'abc', '2022-04-29 00:15:21', 1, '0382768766', 1),
+(45466426, 54, 63500000, 'Thanh toán khi nhận hàng', 'abc', '2022-04-29 00:15:49', 1, '0382768766', 1),
+(45466427, 54, 63500000, 'Thanh toán khi nhận hàng', 'abc', '2022-04-29 00:16:21', 1, '0382768766', 1),
+(45466428, 54, 28000000, 'Thanh toán khi nhận hàng', 'abc', '2022-04-29 00:19:11', 1, '0382768766', 1),
+(45466429, 54, 28000000, 'Thanh toán khi nhận hàng', 'abc', '2022-04-29 00:19:37', 1, '0382768766', 1),
+(45466430, 54, 28000000, 'Thanh toán khi nhận hàng', 'abc', '2022-04-29 00:20:01', 1, '0382768766', 1),
+(45466431, 54, 32500000, 'Thanh toán khi nhận hàng', 'abc', '2022-05-05 22:53:30', 1, '0382768766', 1),
+(45466432, 54, 22180000, 'Thanh toán khi nhận hàng', 'abc', '2022-05-05 23:02:19', 1, '0382768766', 1),
+(45466433, 54, 32000000, 'Thanh toán khi nhận hàng', 'abc', '2022-05-05 23:12:43', 1, '0382768766', 1),
+(45466434, 54, 19950000, 'Thanh toán khi nhận hàng', 'abc', '2022-05-05 23:46:29', 1, '0382768766', 1),
+(45466435, 54, 26000000, 'Thanh toán khi nhận hàng', 'abc', '2022-05-05 23:52:38', 1, '0382768766', 1),
+(45466436, 54, 28650000, 'Thanh toán khi nhận hàng', 'abc', '2022-05-05 23:57:05', 1, '0382768766', 1),
+(45466437, 54, 9004000, 'Thanh toán khi nhận hàng', 'abc', '2022-05-06 00:01:07', 1, '0382768766', 1),
+(45466438, 54, 12644000, 'Thanh toán khi nhận hàng', 'abc', '2022-05-06 00:03:21', 1, '0382768766', 1),
+(45466439, 54, 34054000, 'Thanh toán khi nhận hàng', 'abc', '2022-05-07 12:34:18', 1, '0382768766', 1),
+(45466440, 54, 60590000, 'Thanh toán khi nhận hàng', 'abc', '2022-05-07 13:31:17', 1, '0382768766', 1),
+(45466441, 54, 12000000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-07 13:42:11', 1, '0396476488', 1),
+(45466442, 54, 23540000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-08 09:43:52', 1, '0396476488', 1),
+(45466443, 54, 16540000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-12 23:42:52', 1, '0396476488', 1),
+(45466444, 54, 25450000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-12 23:43:35', 1, '0396476488', 1),
+(45466445, 54, 25450000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-12 23:52:40', 1, '0396476488', 1),
+(45466446, 54, 34000000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 00:03:50', 1, '0396476488', 1),
+(45466447, 54, 29090000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 00:04:33', 1, '0396476488', 1),
+(45466448, 54, 24090000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 00:05:51', 1, '0396476488', 1),
+(45466449, 54, 26090000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 00:07:39', 1, '0396476488', 1),
+(45466450, 54, 57540000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 09:35:03', 1, '0396476488', 1),
+(45466451, 54, 32090000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 09:37:54', 1, '0396476488', 1),
+(45466452, 54, 30500000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 09:40:46', 1, '0396476488', 1),
+(45466453, 54, 14540000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 10:13:25', 1, '0396476488', 1),
+(45466454, 54, 13040000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 10:14:21', 1, '0396476488', 1),
+(45466455, 54, 28090000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 10:15:01', 1, '0396476488', 1),
+(45466456, 54, 17950000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 10:16:59', 1, '0396476488', 1),
+(45466457, 54, 20540000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 10:57:04', 1, '0396476488', 1),
+(45466458, 54, 15540000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 10:58:02', 1, '0396476488', 1),
+(45466459, 54, 66090000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 10:58:49', 1, '0396476488', 1),
+(45466460, 54, 8630000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 10:59:30', 1, '0396476488', 1),
+(45466461, 54, 23450000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:00:27', 1, '0396476488', 1),
+(45466462, 54, 23090000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:01:14', 1, '0396476488', 1),
+(45466463, 54, 19180000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:02:28', 1, '0396476488', 1),
+(45466464, 54, 66090000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:03:02', 1, '0396476488', 1),
+(45466465, 54, 25090000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:03:27', 1, '0396476488', 1),
+(45466466, 54, 21590000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:03:54', 1, '0396476488', 1),
+(45466467, 54, 23090000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:04:14', 1, '0396476488', 1),
+(45466468, 54, 28090000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:04:39', 1, '0396476488', 1),
+(45466469, 54, 30090000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:05:09', 1, '0396476488', 1),
+(45466470, 54, 66090000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:05:30', 1, '0396476488', 1),
+(45466471, 54, 23090000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:06:02', 1, '0396476488', 1),
+(45466472, 54, 23090000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:06:39', 1, '0396476488', 1),
+(45466473, 54, 21590000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:07:05', 1, '0396476488', 1),
+(45466474, 54, 21590000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:07:28', 1, '0396476488', 1),
+(45466475, 54, 28090000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:07:46', 1, '0396476488', 1),
+(45466476, 54, 37000000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:08:41', 1, '0396476488', 1),
+(45466477, 54, 30090000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:09:02', 1, '0396476488', 1),
+(45466478, 54, 16000000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:09:18', 1, '0396476488', 1),
+(45466479, 54, 20000000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:09:35', 1, '0396476488', 1),
+(45466480, 54, 15000000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:09:56', 1, '0396476488', 1),
+(45466481, 54, 66000000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:10:16', 1, '0396476488', 1),
+(45466482, 54, 26000000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:10:41', 1, '0396476488', 1),
+(45466483, 54, 24090000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:11:05', 1, '0396476488', 1),
+(45466484, 54, 8090000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:11:28', 1, '0396476488', 1),
+(45466485, 54, 14000000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:11:48', 1, '0396476488', 1),
+(45466486, 54, 23000000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:13:59', 1, '0396476488', 1),
+(45466487, 54, 66090000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:14:26', 1, '0396476488', 1),
+(45466488, 54, 25090000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:14:47', 1, '0396476488', 1),
+(45466489, 54, 3590000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:25:13', 1, '0396476488', 1),
+(45466490, 54, 3590000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:27:59', 1, '0396476488', 1),
+(45466491, 54, 3590000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:32:29', 1, '0396476488', 1),
+(45466492, 54, 21590000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:36:15', 1, '0396476488', 1),
+(45466493, 54, 21500000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:38:33', 1, '0396476488', 1),
+(45466494, 54, 28500000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:40:57', 1, '0396476488', 1),
+(45466495, 54, 12590000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:44:02', 1, '0396476488', 1),
+(45466496, 54, 19090000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-13 11:45:41', 1, '0396476488', 1),
+(45466497, 54, 3500000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-14 07:31:12', 1, '0396476488', 1),
+(45466498, 54, 10000000, 'Thanh toán khi nhận hàng', 'Nguyễn Phi Hùng,312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2022-05-14 07:33:00', 1, '0396476488', 1),
+(45466499, 67, 3500000, 'Thanh toán khi nhận hàng', 'pipi,11/5a Tân hòa 2 , p.Hiệp Phú , TP.Thủ Đức', '2022-05-14 13:50:56', 1, '0382768766', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `bill_detail`
+--
+
+CREATE TABLE `bill_detail` (
+  `bill_detail_id` bigint(20) NOT NULL,
+  `bill_id` bigint(20) DEFAULT NULL,
+  `product_id` bigint(20) DEFAULT NULL,
+  `price` double DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `bill_detail`
+--
+
+INSERT INTO `bill_detail` (`bill_detail_id`, `bill_id`, `product_id`, `price`, `quantity`) VALUES
+(54, 45466396, 2, 10000000, 1),
+(55, 45466396, 3, 12000000, 1),
+(56, 45466396, 4, 7000000, 1),
+(57, 45466396, 5, 11000000, 1),
+(58, 45466396, 57, 450000, 3),
+(59, 45466397, 4, 7000000, 1),
+(60, 45466397, 5, 11000000, 1),
+(61, 45466397, 59, 450000, 1),
+(62, 45466397, 58, 100000, 1),
+(63, 45466398, 2, 10000000, 1),
+(64, 45466398, 3, 12000000, 1),
+(65, 45466398, 4, 7000000, 1),
+(66, 45466398, 5, 11000000, 1),
+(67, 45466400, 4, 7000000, 1),
+(68, 45466401, 4, 7000000, 1),
+(69, 45466402, 3, 12000000, 1),
+(70, 45466402, 4, 7000000, 1),
+(71, 45466403, 4, 7000000, 1),
+(72, 45466404, 4, 7000000, 1),
+(73, 45466405, 4, 7000000, 1),
+(74, 45466406, 4, 7000000, 1),
+(75, 45466406, 5, 11000000, 1),
+(76, 45466407, 2, 10000000, 1),
+(77, 45466407, 3, 12000000, 1),
+(78, 45466408, 3, 12000000, 1),
+(79, 45466408, 4, 7000000, 1),
+(80, 45466409, 3, 12000000, 1),
+(81, 45466409, 4, 7000000, 1),
+(82, 45466409, 6, 6000000, 1),
+(83, 45466409, 7, 8000000, 1),
+(84, 45466410, 2, 10000000, 1),
+(85, 45466410, 3, 12000000, 1),
+(86, 45466410, 4, 7000000, 1),
+(87, 45466410, 5, 11000000, 1),
+(88, 45466411, 4, 7000000, 1),
+(89, 45466412, 3, 12000000, 1),
+(90, 45466413, 2, 10000000, 1),
+(91, 45466413, 3, 12000000, 1),
+(92, 45466413, 4, 7000000, 1),
+(93, 45466413, 5, 11000000, 1),
+(94, 45466414, 2, 10000000, 1),
+(95, 45466414, 3, 12000000, 1),
+(96, 45466414, 4, 7000000, 1),
+(97, 45466414, 6, 6000000, 1),
+(98, 45466414, 7, 8000000, 1),
+(99, 45466414, 8, 3500000, 1),
+(100, 45466414, 9, 48000000, 1),
+(101, 45466414, 10, 14000000, 1),
+(102, 45466414, 11, 5000000, 1),
+(103, 45466414, 12, 7000000, 1),
+(104, 45466415, 2, 10000000, 1),
+(105, 45466415, 3, 12000000, 1),
+(106, 45466415, 4, 7000000, 1),
+(107, 45466416, 2, 10000000, 1),
+(108, 45466416, 3, 12000000, 1),
+(109, 45466416, 4, 7000000, 1),
+(110, 45466417, 3, 12000000, 1),
+(111, 45466417, 4, 7000000, 1),
+(112, 45466418, 3, 12000000, 1),
+(113, 45466418, 4, 7000000, 1),
+(114, 45466418, 5, 11000000, 1),
+(115, 45466419, 16, 9000000, 1),
+(116, 45466419, 10, 14000000, 1),
+(117, 45466419, 11, 5000000, 1),
+(118, 45466419, 12, 7000000, 1),
+(119, 45466419, 14, 3500000, 1),
+(120, 45466419, 15, 5000000, 1),
+(121, 45466419, 17, 9000000, 1),
+(122, 45466420, 66, 90000, 1),
+(123, 45466420, 65, 90000, 1),
+(124, 45466420, 69, 90000, 1),
+(125, 45466420, 68, 90000, 1),
+(126, 45466421, 2, 10000000, 1),
+(127, 45466422, 1, 3500000, 1),
+(128, 45466422, 22, 8000000, 1),
+(129, 45466422, 20, 6000000, 1),
+(130, 45466422, 19, 12000000, 1),
+(131, 45466423, 1, 3500000, 1),
+(132, 45466423, 22, 8000000, 1),
+(133, 45466423, 20, 6000000, 1),
+(134, 45466423, 19, 12000000, 1),
+(135, 45466424, 1, 3500000, 1),
+(136, 45466424, 22, 8000000, 1),
+(137, 45466424, 20, 6000000, 1),
+(138, 45466424, 19, 12000000, 1),
+(139, 45466425, 25, 3500000, 1),
+(140, 45466425, 24, 7000000, 1),
+(141, 45466425, 23, 5000000, 1),
+(142, 45466425, 21, 48000000, 1),
+(143, 45466426, 25, 3500000, 1),
+(144, 45466426, 24, 7000000, 1),
+(145, 45466426, 23, 5000000, 1),
+(146, 45466426, 21, 48000000, 1),
+(147, 45466427, 25, 3500000, 1),
+(148, 45466427, 24, 7000000, 1),
+(149, 45466427, 23, 5000000, 1),
+(150, 45466427, 21, 48000000, 1),
+(151, 45466428, 16, 9000000, 1),
+(152, 45466428, 2, 10000000, 1),
+(153, 45466428, 17, 9000000, 1),
+(154, 45466429, 16, 9000000, 1),
+(155, 45466429, 2, 10000000, 1),
+(156, 45466429, 17, 9000000, 1),
+(157, 45466430, 16, 9000000, 1),
+(158, 45466430, 2, 10000000, 1),
+(159, 45466430, 17, 9000000, 1),
+(160, 45466431, 2, 10000000, 1),
+(161, 45466431, 3, 12000000, 1),
+(162, 45466431, 4, 7000000, 1),
+(163, 45466431, 8, 3500000, 1),
+(164, 45466432, 2, 10000000, 1),
+(165, 45466432, 3, 12000000, 1),
+(166, 45466432, 70, 90000, 1),
+(167, 45466432, 69, 90000, 1),
+(168, 45466433, 83, 9000000, 1),
+(169, 45466433, 11, 5000000, 1),
+(170, 45466433, 87, 9000000, 1),
+(171, 45466433, 85, 9000000, 1),
+(172, 45466434, 25, 3500000, 1),
+(173, 45466434, 24, 7000000, 1),
+(174, 45466434, 91, 450000, 1),
+(175, 45466434, 100, 9000000, 1),
+(176, 45466435, 6, 6000000, 1),
+(177, 45466435, 7, 8000000, 1),
+(178, 45466435, 11, 5000000, 1),
+(179, 45466435, 12, 7000000, 1),
+(180, 45466436, 83, 9000000, 1),
+(181, 45466436, 10, 14000000, 1),
+(182, 45466436, 11, 5000000, 1),
+(183, 45466436, 118, 650000, 1),
+(184, 45466437, 111, 3500000, 1),
+(185, 45466437, 126, 54000, 1),
+(186, 45466437, 59, 450000, 1),
+(187, 45466437, 15, 5000000, 1),
+(188, 45466438, 130, 54000, 1),
+(189, 45466438, 65, 90000, 1),
+(190, 45466438, 76, 9000000, 1),
+(191, 45466438, 31, 3500000, 1),
+(192, 45466439, 2, 10000000, 1),
+(193, 45466439, 3, 12000000, 2),
+(194, 45466439, 127, 54000, 1),
+(195, 45466440, 68, 90000, 1),
+(196, 45466440, 85, 9000000, 1),
+(197, 45466440, 9, 48000000, 1),
+(198, 45466440, 111, 3500000, 1),
+(199, 45466441, 3, 12000000, 1),
+(200, 45466442, 68, 90000, 1),
+(201, 45466442, 10, 14000000, 1),
+(202, 45466442, 91, 450000, 1),
+(203, 45466442, 76, 9000000, 1),
+(204, 45466443, 65, 90000, 1),
+(205, 45466443, 4, 7000000, 1),
+(206, 45466443, 100, 9000000, 1),
+(207, 45466443, 57, 450000, 1),
+(208, 45466444, 83, 9000000, 1),
+(209, 45466444, 4, 7000000, 1),
+(210, 45466444, 100, 9000000, 1),
+(211, 45466444, 91, 450000, 1),
+(212, 45466445, 4, 7000000, 1),
+(213, 45466445, 100, 9000000, 1),
+(214, 45466445, 74, 9000000, 1),
+(215, 45466445, 91, 450000, 1),
+(216, 45466446, 4, 7000000, 1),
+(217, 45466446, 74, 9000000, 1),
+(218, 45466446, 75, 9000000, 1),
+(219, 45466446, 76, 9000000, 1),
+(220, 45466447, 65, 90000, 1),
+(221, 45466447, 83, 9000000, 1),
+(222, 45466447, 5, 11000000, 1),
+(223, 45466447, 74, 9000000, 1),
+(224, 45466448, 65, 90000, 1),
+(225, 45466448, 83, 9000000, 1),
+(226, 45466448, 6, 6000000, 1),
+(227, 45466448, 74, 9000000, 1),
+(228, 45466449, 65, 90000, 1),
+(229, 45466449, 83, 9000000, 1),
+(230, 45466449, 7, 8000000, 1),
+(231, 45466449, 74, 9000000, 1),
+(232, 45466450, 65, 90000, 1),
+(233, 45466450, 9, 48000000, 1),
+(234, 45466450, 74, 9000000, 1),
+(235, 45466450, 91, 450000, 1),
+(236, 45466451, 65, 90000, 1),
+(237, 45466451, 83, 9000000, 1),
+(238, 45466451, 10, 14000000, 1),
+(239, 45466451, 74, 9000000, 1),
+(240, 45466452, 1, 3500000, 1),
+(241, 45466452, 83, 9000000, 1),
+(242, 45466452, 100, 9000000, 1),
+(243, 45466452, 74, 9000000, 1),
+(244, 45466453, 65, 90000, 1),
+(245, 45466453, 74, 9000000, 1),
+(246, 45466453, 11, 5000000, 1),
+(247, 45466453, 91, 450000, 1),
+(248, 45466454, 1, 3500000, 1),
+(249, 45466454, 65, 90000, 1),
+(250, 45466454, 74, 9000000, 1),
+(251, 45466454, 91, 450000, 1),
+(252, 45466455, 65, 90000, 1),
+(253, 45466455, 2, 10000000, 1),
+(254, 45466455, 83, 9000000, 1),
+(255, 45466455, 74, 9000000, 1),
+(256, 45466456, 100, 9000000, 1),
+(257, 45466456, 11, 5000000, 1),
+(258, 45466456, 91, 450000, 1),
+(259, 45466456, 109, 3500000, 1),
+(260, 45466457, 65, 90000, 1),
+(261, 45466457, 5, 11000000, 1),
+(262, 45466457, 74, 9000000, 1),
+(263, 45466457, 91, 450000, 1),
+(264, 45466458, 65, 90000, 1),
+(265, 45466458, 83, 9000000, 1),
+(266, 45466458, 6, 6000000, 1),
+(267, 45466458, 91, 450000, 1),
+(268, 45466459, 65, 90000, 1),
+(269, 45466459, 83, 9000000, 1),
+(270, 45466459, 9, 48000000, 1),
+(271, 45466459, 74, 9000000, 1),
+(272, 45466460, 65, 90000, 1),
+(273, 45466460, 70, 90000, 1),
+(274, 45466460, 7, 8000000, 1),
+(275, 45466460, 59, 450000, 1),
+(276, 45466461, 85, 9000000, 1),
+(277, 45466461, 74, 9000000, 1),
+(278, 45466461, 11, 5000000, 1),
+(279, 45466461, 91, 450000, 1),
+(280, 45466462, 65, 90000, 1),
+(281, 45466462, 83, 9000000, 1),
+(282, 45466462, 74, 9000000, 1),
+(283, 45466462, 15, 5000000, 1),
+(284, 45466463, 65, 90000, 2),
+(285, 45466463, 2, 10000000, 1),
+(286, 45466463, 74, 9000000, 1),
+(287, 45466464, 65, 90000, 1),
+(288, 45466464, 83, 9000000, 1),
+(289, 45466464, 9, 48000000, 1),
+(290, 45466464, 74, 9000000, 1),
+(291, 45466465, 65, 90000, 1),
+(292, 45466465, 83, 9000000, 1),
+(293, 45466465, 74, 9000000, 1),
+(294, 45466465, 12, 7000000, 1),
+(295, 45466466, 65, 90000, 1),
+(296, 45466466, 83, 9000000, 1),
+(297, 45466466, 74, 9000000, 1),
+(298, 45466466, 14, 3500000, 1),
+(299, 45466467, 66, 90000, 1),
+(300, 45466467, 83, 9000000, 1),
+(301, 45466467, 75, 9000000, 1),
+(302, 45466467, 15, 5000000, 1),
+(303, 45466468, 18, 10000000, 1),
+(304, 45466468, 66, 90000, 1),
+(305, 45466468, 85, 9000000, 1),
+(306, 45466468, 76, 9000000, 1),
+(307, 45466469, 66, 90000, 1),
+(308, 45466469, 19, 12000000, 1),
+(309, 45466469, 85, 9000000, 1),
+(310, 45466469, 76, 9000000, 1),
+(311, 45466470, 66, 90000, 1),
+(312, 45466470, 21, 48000000, 1),
+(313, 45466470, 85, 9000000, 1),
+(314, 45466470, 76, 9000000, 1),
+(315, 45466471, 66, 90000, 1),
+(316, 45466471, 86, 9000000, 1),
+(317, 45466471, 23, 5000000, 1),
+(318, 45466471, 76, 9000000, 1),
+(319, 45466472, 66, 90000, 1),
+(320, 45466472, 86, 9000000, 1),
+(321, 45466472, 26, 5000000, 1),
+(322, 45466472, 76, 9000000, 1),
+(323, 45466473, 66, 90000, 1),
+(324, 45466473, 83, 9000000, 1),
+(325, 45466473, 27, 3500000, 1),
+(326, 45466473, 76, 9000000, 1),
+(327, 45466474, 1, 3500000, 1),
+(328, 45466474, 65, 90000, 1),
+(329, 45466474, 85, 9000000, 1),
+(330, 45466474, 76, 9000000, 1),
+(331, 45466475, 65, 90000, 1),
+(332, 45466475, 2, 10000000, 1),
+(333, 45466475, 83, 9000000, 1),
+(334, 45466475, 74, 9000000, 1),
+(335, 45466476, 3, 12000000, 1),
+(336, 45466476, 83, 9000000, 1),
+(337, 45466476, 4, 7000000, 1),
+(338, 45466476, 74, 9000000, 1),
+(339, 45466477, 65, 90000, 1),
+(340, 45466477, 3, 12000000, 1),
+(341, 45466477, 83, 9000000, 1),
+(342, 45466477, 74, 9000000, 1),
+(343, 45466478, 83, 9000000, 1),
+(344, 45466478, 4, 7000000, 1),
+(345, 45466479, 83, 9000000, 1),
+(346, 45466479, 5, 11000000, 1),
+(347, 45466480, 83, 9000000, 1),
+(348, 45466480, 6, 6000000, 1),
+(349, 45466481, 85, 9000000, 1),
+(350, 45466481, 9, 48000000, 1),
+(351, 45466481, 76, 9000000, 1),
+(352, 45466482, 85, 9000000, 1),
+(353, 45466482, 7, 8000000, 1),
+(354, 45466482, 74, 9000000, 1),
+(355, 45466483, 65, 90000, 1),
+(356, 45466483, 85, 9000000, 1),
+(357, 45466483, 6, 6000000, 1),
+(358, 45466483, 74, 9000000, 1),
+(359, 45466484, 66, 90000, 1),
+(360, 45466484, 7, 8000000, 1),
+(361, 45466485, 10, 14000000, 1),
+(362, 45466486, 85, 9000000, 1),
+(363, 45466486, 11, 5000000, 1),
+(364, 45466486, 76, 9000000, 1),
+(365, 45466487, 65, 90000, 1),
+(366, 45466487, 85, 9000000, 1),
+(367, 45466487, 9, 48000000, 1),
+(368, 45466487, 74, 9000000, 1),
+(369, 45466488, 65, 90000, 1),
+(370, 45466488, 83, 9000000, 1),
+(371, 45466488, 4, 7000000, 1),
+(372, 45466488, 74, 9000000, 1),
+(373, 45466489, 1, 3500000, 1),
+(374, 45466489, 65, 90000, 1),
+(375, 45466490, 1, 3500000, 1),
+(376, 45466490, 65, 90000, 1),
+(377, 45466491, 1, 3500000, 1),
+(378, 45466491, 65, 90000, 1),
+(379, 45466492, 1, 3500000, 1),
+(380, 45466492, 65, 90000, 1),
+(381, 45466492, 83, 9000000, 1),
+(382, 45466492, 74, 9000000, 1),
+(383, 45466493, 1, 3500000, 1),
+(384, 45466493, 83, 9000000, 1),
+(385, 45466493, 74, 9000000, 1),
+(386, 45466494, 1, 3500000, 1),
+(387, 45466494, 5, 11000000, 1),
+(388, 45466494, 10, 14000000, 1),
+(389, 45466495, 1, 3500000, 1),
+(390, 45466495, 65, 90000, 1),
+(391, 45466495, 74, 9000000, 1),
+(392, 45466496, 65, 90000, 1),
+(393, 45466496, 2, 10000000, 1),
+(394, 45466496, 74, 9000000, 1),
+(395, 45466497, 1, 3500000, 1),
+(396, 45466498, 2, 10000000, 1),
+(397, 45466499, 1, 3500000, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `category`
+--
+
+CREATE TABLE `category` (
+  `category_id` bigint(11) NOT NULL,
+  `category_name` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `category`
+--
+
+INSERT INTO `category` (`category_id`, `category_name`) VALUES
+(1, 'CHÓ PITBULL'),
+(2, 'Chó Mặt Xệ Xệ'),
+(3, 'Chó Pug'),
+(5, 'Chó Poodle'),
+(6, 'Chó Beagle'),
+(7, 'Chó Chihuahua'),
+(8, 'Chó Bully'),
+(9, 'Chó Corgi'),
+(10, 'Chó Doberman'),
+(11, 'Chó Ngao Tây Tạng'),
+(12, 'Chó Yorkshire'),
+(13, 'Chó Husky'),
+(14, 'Chó Maltese'),
+(15, 'Chó Shiba Inu'),
+(16, 'Chó Phốc sóc'),
+(17, 'Chó Golden'),
+(18, 'Chó Samoyed'),
+(19, 'Chó Bull Anh'),
+(20, 'Chó Bull Pháp'),
+(21, 'Mèo xiêm'),
+(22, 'Mèo Ba Tư'),
+(23, 'Mèo tai cụp Scottish Fold');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `category_givepet`
+--
+
+CREATE TABLE `category_givepet` (
+  `catergoty_givepet_id` bigint(20) NOT NULL,
+  `categoryname_givepet` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `category_givepet`
+--
+
+INSERT INTO `category_givepet` (`catergoty_givepet_id`, `categoryname_givepet`) VALUES
+(1, 'Dây xích'),
+(2, 'Dụng Cụ Grooming'),
+(3, 'Sữa tắm cho chó'),
+(4, 'Khay thức ăn cho chó'),
+(5, 'Túi balo cho chó'),
+(6, 'Chuồng cho chó'),
+(7, 'Giường Nệm cho chó'),
+(8, 'Quần áo cho chó'),
+(9, 'Vòng Cổ cho chó');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `comment`
+--
+
+CREATE TABLE `comment` (
+  `comment_id` bigint(20) NOT NULL,
+  `comment_email` varchar(200) NOT NULL,
+  `comment_name` varchar(200) NOT NULL,
+  `comment_text` text NOT NULL,
+  `product_id` bigint(20) DEFAULT NULL,
+  `product_givepet_id` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `comment`
+--
+
+INSERT INTO `comment` (`comment_id`, `comment_email`, `comment_name`, `comment_text`, `product_id`, `product_givepet_id`) VALUES
+(14, 'admin@email.com', 'hùng', 'sasdasdasd', 3, NULL),
+(15, 'nph3082000@gmail.com', 'Thông Tin', 'wsfsdfsdf', 3, NULL),
+(16, 'nguyenphihung3800@gmail.com', 'good', 'asdasdasd', 4, NULL),
+(17, 'nguyenphihung3800@gmail.com', 'pipi', 'good', 4, NULL),
+(18, 'abc123@gmail.com', 'pipi', 'good', 5, NULL),
+(19, 'nguyenphihung3800@gmail.com', 'pipi', 'goood', 5, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `product`
+--
+
+CREATE TABLE `product` (
+  `product_id` bigint(20) NOT NULL,
+  `category_id` bigint(11) DEFAULT NULL,
+  `catergoty_givepet_id` bigint(20) DEFAULT NULL,
+  `product_name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `product_image` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `product_price` double DEFAULT NULL,
+  `product_description` text CHARACTER SET utf8 DEFAULT NULL,
+  `product_quantity` int(11) DEFAULT NULL,
+  `product_provider` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `product_buy` double DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `product`
+--
+
+INSERT INTO `product` (`product_id`, `category_id`, `catergoty_givepet_id`, `product_name`, `product_image`, `product_price`, `product_description`, `product_quantity`, `product_provider`, `product_buy`) VALUES
+(1, 9, NULL, 'Chó Corgi Mỹ', 'https://www.2thucung.com/wp-content/uploads/2021/01/cho-corgi-1.jpg', 3500000, 'Chó Corgi Pembroke Wales là giống chó chăn gia súc có nguồn gốc từ Pembrokeshire, xứ Wales. Nó là một trong hai giống được biết đến với tên gọi chung là Chó Corgi xứ Wales. Giống chó còn lại là giống Chó Corgi Cardigan Wales và cả hai đều có tổ tiên là giống chó đuôi cuộn kiểu Bắc Cực.', 9, NULL, 90000),
+(2, 1, NULL, 'Bull ANh', 'https://tapchithucung.vn/Uploads/images/cho-bulldog-anh-thuan-chung-1.jpg', 10000000, 'Khác với giống Chó Alaska Pitbull là giống chó tầm trung bình và nhỏ, chiều cao trung bình từ 45-55cm, cân nặng từ 15-30kg.Chúng có ngoại hình khá dữ dằn, đôi mắt đỏ ngàu dữ tợn dưới cái trán to gồ, Pitbull được biết đến với ngoại hình đầy cơ bắp và gây ấn tượng với vẻ ngoài hầm hố, hung dữ., cơ thể dài, có khung xương và cơ bắp chắc. Chúng có bộ long ngắn và cái đuôi cũng ngắn, đôi tai cụp ngắn. Vẻ ngoài hầm hố, cơ bắp khiến Pitbull dễ bị ác cảm, do đó nhiều lời đồn thổi về giống chó Pitbull một phần cũng vì ngoại hình dữ dằn của chúng.\r\n                                \r\n                                ', 1, '', 5000000),
+(3, 2, NULL, 'Chó Pug', 'https://zoipet.com/wp-content/uploads/2020/03/cho-pug-mat-xe.jpg', 12000000, 'Pug, hay thường được gọi là chó mặt xệ, là giống chó thuộc nhóm chó cảnh có nguồn gốc từ Trung Quốc, chúng có một khuôn mặt nhăn, mõm ngắn, và đuôi xoăn. Giống chó này có bộ lông mịn, bóng, có nhiều màu sắc nhưng phổ biến nhất là màu đen và nâu vàng. Cơ thể của Pug nhỏ gọn hình vuông với các cơ bắp rất phát triển.', 0, NULL, 90000),
+(4, 5, NULL, 'Chó Poodle Tiny ', 'http://file.hstatic.net/1000238938/file/cho-poodle-con_e33b8d0750334627b384da2e5231074e_grande.png', 7000000, 'Chó Poodle còn gọi là chó săn vịt là một giống chó săn dùng để săn các loại thủy cầm trong đó chủ yếu là vịt. Ngày nay giống chó này được lai tạo để trở thành dòng chó cảnh. Tên \"Poodle\" của chúng xuất phát từ chữ \"Pudel\" trong tiếng Đức, nghĩa là \"thợ lặn\" hay là \"chó lội nước\" và bộ lông của chúng có thể đè bẹp cơ thể khi ở trong nước.\r\n\r\n', 0, NULL, 900000),
+(5, 6, NULL, 'Chó Beagle Pháp', 'https://petmaster.vn/petroom/wp-content/uploads/2020/03/hinh-anh-cho-beagle.jpg', 11000000, 'Chó Beagle còn được gọi là chó săn thỏ là một giống chó nhỏ trong các chó săn và chuyên dùng để săn thỏ, chúng dễ nhận biết bởi bộ lông tam thể mềm mượt đặc trưng. Chúng rất dễ nuôi, thân thiện và đáng yêu với con người, có thể vừa trông nhà, vừa chơi đùa cùng trẻ con trong nhà.', 9, NULL, 90000),
+(6, 7, NULL, 'Chó Chihuahua VN', 'https://petmaster.vn/petroom/wp-content/uploads/2020/03/cho-chihuahua.jpg', 6000000, 'Chó Chihuahua là một trong những giống chó nuôi nhỏ nhất trên thế giới. Cái tên Chihuahua được đặt theo tên của bang Chihuahua ở México. Giống chó này rất thông minh.', 6, NULL, 90000),
+(7, 8, NULL, 'Chó Bully Mỹ', 'https://puppyhouse.vn/wp-content/uploads/2018/12/cho-pitbull-1.jpg', 8000000, 'Chó Bully Mỹ hay chó Bully là một giống chó có nguồn gốc từ Mỹ, chúng là hậu duệ của chó American Pit Bull Terrier, American Staffordshire Terrier và Chó bò Mỹ', 9, NULL, 90000),
+(8, 9, NULL, 'Chó Corgi Mỹ', 'https://www.2thucung.com/wp-content/uploads/2021/01/cho-corgi-1.jpg', 3500000, 'Chó Corgi Pembroke Wales là giống chó chăn gia súc có nguồn gốc từ Pembrokeshire, xứ Wales. Nó là một trong hai giống được biết đến với tên gọi chung là Chó Corgi xứ Wales. Giống chó còn lại là giống Chó Corgi Cardigan Wales và cả hai đều có tổ tiên là giống chó đuôi cuộn kiểu Bắc Cực.', 9, NULL, 90000),
+(9, 10, NULL, 'Chó Doberman', 'https://zoipet.com/wp-content/uploads/2021/01/cho-doberman.jpg', 48000000, 'Doberman là tên của một giống chó có thể nuôi để giữ nhà, canh gác hoặc làm nghiệp vụ. Tên gọi đầy đủ và chính xác của nó là Dobermann Pinscher. Dobermann là một trong số ít những loại chó được đặt theo tên người', 8, NULL, 90000),
+(10, 11, NULL, 'Chó Ngao Tây Tạng', 'https://sieupet.com/sites/default/files/pictures/images/cach-chon-cho-Ngao-Tay-Tang-con.jpg', 14000000, 'Chó ngao Tây Tạng hay còn gọi là Ngao Tạng, tên tiếng Anh là Tibetan Mastiff, là một giống chó Ngao được người Tây Tạng nuôi và huấn luyện để bảo vệ gia súc và bảo vệ cuộc sống của những người dân bản địa trên vùng núi Himalaya khỏi những con thú hoang như chó sói, hổ, gấu và để canh gác các tu viện ở Tây Tạng.', 9, NULL, 90000),
+(11, 21, NULL, 'Mèo Xiêm VN', 'https://petto.vn/wp-content/uploads/2019/02/meo-xiem.jpg', 5000000, 'Mèo Xiêm là một trong những loài mèo đầu tiên của mèo lông ngắn phương Đông được công nhận. Nguồn gốc của mèo Xiêm cho đến nay vẫn chưa được rõ ràng, nhưng Thái Lan được tin rằng là nơi xuất xứ của nó. Ở Thái Lan - nơi mèo Xiêm là một trong những nòi mèo bản xứ - nó được người dân Thái gọi là Wichian Mat', 9, NULL, 90000),
+(12, 22, NULL, 'Mèo Ba Tư', 'https://petmaster.vn/petroom/wp-content/uploads/2020/04/meo-ba-tu.jpg', 7000000, 'Mèo Ba Tư là một trong những giống mèo cảnh được đông đảo người yêu mèo yêu mến, lựa chọn làm thú cưng trong gia đình. Sở dĩ như vậy là do ngoại hình của chúng mập mạp, đáng yêu với bộ lông vô cùng quyến rũ. Mặc dù giống mèo này chăm sóc khó khăn hơn so với những giống mèo cảnh khác nhưng do ngoại hình quá đẹp và thu hút nên ở nước ta rất nhiều bạn vẫn săn đón mèo Ba Tư. Chính vì thế, trong bài viết này, Petroom sẽ cập nhật đến bạn đầy đủ thông tin về nguồn gốc, những đặc điểm tính cách, ngoại hình cũng như cách nuôi và giá bán mèo Ba Tư.', 9, NULL, 90000),
+(14, 23, NULL, 'Mèo Tai Cụp Scottish Fold', 'https://zoipet.com/wp-content/uploads/2020/03/meo-scottish.jpg', 3500000, 'Mèo tai cụp là một giống mèo nhà với sự đột biến sinh học tự nhiên gen lặn gây ảnh hưởng đến phần sụn toàn thân, khiến cho tai bị \"cụp\", bẻ ra phía trước và xuống phía đầu, từ đó khiến chúng hay được so sánh rằng trông giống cú.', 9, NULL, 90000),
+(15, 13, NULL, 'Chó HusKy Nga', 'https://sieupet.com/sites/default/files/pictures/images/cho-Husky.jpg', 5000000, 'Mẫu ghế sofa đơn đẹp ấn tượng. Sofa đơn mã 069 sẽ giúp bạn tạo nên nét tươi mới, quý phái cho không gian phòng khách của bạn trong những ngày xuân ấm áp này. \r\nKhung gỗ : tự nhiên cao cấp. Chân ghế : tự chọn ( chân inox - chân gỗ). Đệm mút : Cứng hoặc mềm - bông mút ( tùy chọn ). Kích thước sofa văng: 1800 * 800', 9, NULL, 90000),
+(16, 1, NULL, 'Bull Pháp', 'https://i.pinimg.com/236x/35/77/34/3577348b7d52cd27674187c51a05539f.jpg', 9000000, 'Khác với giống Chó Alaska Pitbull là giống chó tầm trung bình và nhỏ, chiều cao trung bình từ 45-55cm, cân nặng từ 15-30kg.Chúng có ngoại hình khá dữ dằn, đôi mắt đỏ ngàu dữ tợn dưới cái trán to gồ, Pitbull được biết đến với ngoại hình đầy cơ bắp và gây ấn tượng với vẻ ngoài hầm hố, hung dữ., cơ thể dài, có khung xương và cơ bắp chắc. Chúng có bộ long ngắn và cái đuôi cũng ngắn, đôi tai cụp ngắn. Vẻ ngoài hầm hố, cơ bắp khiến Pitbull dễ bị ác cảm, do đó nhiều lời đồn thổi về giống chó Pitbull một phần cũng vì ngoại hình dữ dằn của chúng.', 9, NULL, 90000),
+(17, 1, NULL, 'Bull Pháp', 'https://i.pinimg.com/236x/35/77/34/3577348b7d52cd27674187c51a05539f.jpg', 9000000, 'Khác với giống Chó Alaska Pitbull là giống chó tầm trung bình và nhỏ, chiều cao trung bình từ 45-55cm, cân nặng từ 15-30kg.Chúng có ngoại hình khá dữ dằn, đôi mắt đỏ ngàu dữ tợn dưới cái trán to gồ, Pitbull được biết đến với ngoại hình đầy cơ bắp và gây ấn tượng với vẻ ngoài hầm hố, hung dữ., cơ thể dài, có khung xương và cơ bắp chắc. Chúng có bộ long ngắn và cái đuôi cũng ngắn, đôi tai cụp ngắn. Vẻ ngoài hầm hố, cơ bắp khiến Pitbull dễ bị ác cảm, do đó nhiều lời đồn thổi về giống chó Pitbull một phần cũng vì ngoại hình dữ dằn của chúng.', 9, NULL, 90000),
+(18, 1, NULL, 'Bull ANh', 'https://tapchithucung.vn/Uploads/images/cho-bulldog-anh-thuan-chung-1.jpg', 10000000, 'Khác với giống Chó Alaska Pitbull là giống chó tầm trung bình và nhỏ, chiều cao trung bình từ 45-55cm, cân nặng từ 15-30kg.Chúng có ngoại hình khá dữ dằn, đôi mắt đỏ ngàu dữ tợn dưới cái trán to gồ, Pitbull được biết đến với ngoại hình đầy cơ bắp và gây ấn tượng với vẻ ngoài hầm hố, hung dữ., cơ thể dài, có khung xương và cơ bắp chắc. Chúng có bộ long ngắn và cái đuôi cũng ngắn, đôi tai cụp ngắn. Vẻ ngoài hầm hố, cơ bắp khiến Pitbull dễ bị ác cảm, do đó nhiều lời đồn thổi về giống chó Pitbull một phần cũng vì ngoại hình dữ dằn của chúng.\r\n                                \r\n                                ', 24, '', 5000000),
+(19, 2, NULL, 'Chó Pug', 'https://zoipet.com/wp-content/uploads/2020/03/cho-pug-mat-xe.jpg', 12000000, 'Pug, hay thường được gọi là chó mặt xệ, là giống chó thuộc nhóm chó cảnh có nguồn gốc từ Trung Quốc, chúng có một khuôn mặt nhăn, mõm ngắn, và đuôi xoăn. Giống chó này có bộ lông mịn, bóng, có nhiều màu sắc nhưng phổ biến nhất là màu đen và nâu vàng. Cơ thể của Pug nhỏ gọn hình vuông với các cơ bắp rất phát triển.', 5, NULL, 90000),
+(20, 7, NULL, 'Chó Chihuahua VN', 'https://petmaster.vn/petroom/wp-content/uploads/2020/03/cho-chihuahua.jpg', 6000000, 'Chó Chihuahua là một trong những giống chó nuôi nhỏ nhất trên thế giới. Cái tên Chihuahua được đặt theo tên của bang Chihuahua ở México. Giống chó này rất thông minh.', 8, NULL, 90000),
+(21, 10, NULL, 'Chó Doberman', 'https://zoipet.com/wp-content/uploads/2021/01/cho-doberman.jpg', 48000000, 'Doberman là tên của một giống chó có thể nuôi để giữ nhà, canh gác hoặc làm nghiệp vụ. Tên gọi đầy đủ và chính xác của nó là Dobermann Pinscher. Dobermann là một trong số ít những loại chó được đặt theo tên người', 9, NULL, 90000),
+(22, 8, NULL, 'Chó Bully Mỹ', 'https://puppyhouse.vn/wp-content/uploads/2018/12/cho-pitbull-1.jpg', 8000000, 'Chó Bully Mỹ hay chó Bully là một giống chó có nguồn gốc từ Mỹ, chúng là hậu duệ của chó American Pit Bull Terrier, American Staffordshire Terrier và Chó bò Mỹ', 9, NULL, 90000),
+(23, 21, NULL, 'Mèo Xiêm VN', 'https://petto.vn/wp-content/uploads/2019/02/meo-xiem.jpg', 5000000, 'Mèo Xiêm là một trong những loài mèo đầu tiên của mèo lông ngắn phương Đông được công nhận. Nguồn gốc của mèo Xiêm cho đến nay vẫn chưa được rõ ràng, nhưng Thái Lan được tin rằng là nơi xuất xứ của nó. Ở Thái Lan - nơi mèo Xiêm là một trong những nòi mèo bản xứ - nó được người dân Thái gọi là Wichian Mat', 9, NULL, 90000),
+(24, 22, NULL, 'Mèo Ba Tư', 'https://petmaster.vn/petroom/wp-content/uploads/2020/04/meo-ba-tu.jpg', 7000000, 'Mèo Ba Tư là một trong những giống mèo cảnh được đông đảo người yêu mèo yêu mến, lựa chọn làm thú cưng trong gia đình. Sở dĩ như vậy là do ngoại hình của chúng mập mạp, đáng yêu với bộ lông vô cùng quyến rũ. Mặc dù giống mèo này chăm sóc khó khăn hơn so với những giống mèo cảnh khác nhưng do ngoại hình quá đẹp và thu hút nên ở nước ta rất nhiều bạn vẫn săn đón mèo Ba Tư. Chính vì thế, trong bài viết này, Petroom sẽ cập nhật đến bạn đầy đủ thông tin về nguồn gốc, những đặc điểm tính cách, ngoại hình cũng như cách nuôi và giá bán mèo Ba Tư.', 9, NULL, 90000),
+(25, 23, NULL, 'Mèo Tai Cụp Scottish Fold', 'https://zoipet.com/wp-content/uploads/2020/03/meo-scottish.jpg', 3500000, 'Mèo tai cụp là một giống mèo nhà với sự đột biến sinh học tự nhiên gen lặn gây ảnh hưởng đến phần sụn toàn thân, khiến cho tai bị \"cụp\", bẻ ra phía trước và xuống phía đầu, từ đó khiến chúng hay được so sánh rằng trông giống cú.', 9, NULL, 90000),
+(26, 13, NULL, 'Chó HusKy Nga', 'https://sieupet.com/sites/default/files/pictures/images/cho-Husky.jpg', 5000000, 'Mẫu ghế sofa đơn đẹp ấn tượng. Sofa đơn mã 069 sẽ giúp bạn tạo nên nét tươi mới, quý phái cho không gian phòng khách của bạn trong những ngày xuân ấm áp này. \r\nKhung gỗ : tự nhiên cao cấp. Chân ghế : tự chọn ( chân inox - chân gỗ). Đệm mút : Cứng hoặc mềm - bông mút ( tùy chọn ). Kích thước sofa văng: 1800 * 800', 9, NULL, 90000),
+(27, 9, NULL, 'Chó Corgi Mỹ', 'https://www.2thucung.com/wp-content/uploads/2021/01/cho-corgi-1.jpg', 3500000, 'Chó Corgi Pembroke Wales là giống chó chăn gia súc có nguồn gốc từ Pembrokeshire, xứ Wales. Nó là một trong hai giống được biết đến với tên gọi chung là Chó Corgi xứ Wales. Giống chó còn lại là giống Chó Corgi Cardigan Wales và cả hai đều có tổ tiên là giống chó đuôi cuộn kiểu Bắc Cực.', 9, NULL, 90000),
+(28, 10, NULL, 'Chó Doberman', 'https://zoipet.com/wp-content/uploads/2021/01/cho-doberman.jpg', 48000000, 'Doberman là tên của một giống chó có thể nuôi để giữ nhà, canh gác hoặc làm nghiệp vụ. Tên gọi đầy đủ và chính xác của nó là Dobermann Pinscher. Dobermann là một trong số ít những loại chó được đặt theo tên người', 9, NULL, 90000),
+(29, 21, NULL, 'Mèo Xiêm VN', 'https://petto.vn/wp-content/uploads/2019/02/meo-xiem.jpg', 5000000, 'Mèo Xiêm là một trong những loài mèo đầu tiên của mèo lông ngắn phương Đông được công nhận. Nguồn gốc của mèo Xiêm cho đến nay vẫn chưa được rõ ràng, nhưng Thái Lan được tin rằng là nơi xuất xứ của nó. Ở Thái Lan - nơi mèo Xiêm là một trong những nòi mèo bản xứ - nó được người dân Thái gọi là Wichian Mat', 9, NULL, 90000),
+(30, 22, NULL, 'Mèo Ba Tư', 'https://petmaster.vn/petroom/wp-content/uploads/2020/04/meo-ba-tu.jpg', 7000000, 'Mèo Ba Tư là một trong những giống mèo cảnh được đông đảo người yêu mèo yêu mến, lựa chọn làm thú cưng trong gia đình. Sở dĩ như vậy là do ngoại hình của chúng mập mạp, đáng yêu với bộ lông vô cùng quyến rũ. Mặc dù giống mèo này chăm sóc khó khăn hơn so với những giống mèo cảnh khác nhưng do ngoại hình quá đẹp và thu hút nên ở nước ta rất nhiều bạn vẫn săn đón mèo Ba Tư. Chính vì thế, trong bài viết này, Petroom sẽ cập nhật đến bạn đầy đủ thông tin về nguồn gốc, những đặc điểm tính cách, ngoại hình cũng như cách nuôi và giá bán mèo Ba Tư.', 9, NULL, 90000),
+(31, 23, NULL, 'Mèo Tai Cụp Scottish Fold', 'https://zoipet.com/wp-content/uploads/2020/03/meo-scottish.jpg', 3500000, 'Mèo tai cụp là một giống mèo nhà với sự đột biến sinh học tự nhiên gen lặn gây ảnh hưởng đến phần sụn toàn thân, khiến cho tai bị \"cụp\", bẻ ra phía trước và xuống phía đầu, từ đó khiến chúng hay được so sánh rằng trông giống cú.', 9, NULL, 90000),
+(32, 13, NULL, 'Chó HusKy Nga', 'https://sieupet.com/sites/default/files/pictures/images/cho-Husky.jpg', 5000000, 'Mẫu ghế sofa đơn đẹp ấn tượng. Sofa đơn mã 069 sẽ giúp bạn tạo nên nét tươi mới, quý phái cho không gian phòng khách của bạn trong những ngày xuân ấm áp này. \r\nKhung gỗ : tự nhiên cao cấp. Chân ghế : tự chọn ( chân inox - chân gỗ). Đệm mút : Cứng hoặc mềm - bông mút ( tùy chọn ). Kích thước sofa văng: 1800 * 800', 9, NULL, 90000),
+(33, 9, NULL, 'Chó Corgi Mỹ', 'https://www.2thucung.com/wp-content/uploads/2021/01/cho-corgi-1.jpg', 3500000, 'Chó Corgi Pembroke Wales là giống chó chăn gia súc có nguồn gốc từ Pembrokeshire, xứ Wales. Nó là một trong hai giống được biết đến với tên gọi chung là Chó Corgi xứ Wales. Giống chó còn lại là giống Chó Corgi Cardigan Wales và cả hai đều có tổ tiên là giống chó đuôi cuộn kiểu Bắc Cực.', 9, NULL, 90000),
+(34, 10, NULL, 'Chó Doberman', 'https://zoipet.com/wp-content/uploads/2021/01/cho-doberman.jpg', 48000000, 'Doberman là tên của một giống chó có thể nuôi để giữ nhà, canh gác hoặc làm nghiệp vụ. Tên gọi đầy đủ và chính xác của nó là Dobermann Pinscher. Dobermann là một trong số ít những loại chó được đặt theo tên người', 9, NULL, 90000),
+(35, 21, NULL, 'Mèo Xiêm VN', 'https://petto.vn/wp-content/uploads/2019/02/meo-xiem.jpg', 5000000, 'Mèo Xiêm là một trong những loài mèo đầu tiên của mèo lông ngắn phương Đông được công nhận. Nguồn gốc của mèo Xiêm cho đến nay vẫn chưa được rõ ràng, nhưng Thái Lan được tin rằng là nơi xuất xứ của nó. Ở Thái Lan - nơi mèo Xiêm là một trong những nòi mèo bản xứ - nó được người dân Thái gọi là Wichian Mat', 9, NULL, 90000),
+(36, 22, NULL, 'Mèo Ba Tư', 'https://petmaster.vn/petroom/wp-content/uploads/2020/04/meo-ba-tu.jpg', 7000000, 'Mèo Ba Tư là một trong những giống mèo cảnh được đông đảo người yêu mèo yêu mến, lựa chọn làm thú cưng trong gia đình. Sở dĩ như vậy là do ngoại hình của chúng mập mạp, đáng yêu với bộ lông vô cùng quyến rũ. Mặc dù giống mèo này chăm sóc khó khăn hơn so với những giống mèo cảnh khác nhưng do ngoại hình quá đẹp và thu hút nên ở nước ta rất nhiều bạn vẫn săn đón mèo Ba Tư. Chính vì thế, trong bài viết này, Petroom sẽ cập nhật đến bạn đầy đủ thông tin về nguồn gốc, những đặc điểm tính cách, ngoại hình cũng như cách nuôi và giá bán mèo Ba Tư.', 9, NULL, 90000),
+(37, 23, NULL, 'Mèo Tai Cụp Scottish Fold', 'https://zoipet.com/wp-content/uploads/2020/03/meo-scottish.jpg', 3500000, 'Mèo tai cụp là một giống mèo nhà với sự đột biến sinh học tự nhiên gen lặn gây ảnh hưởng đến phần sụn toàn thân, khiến cho tai bị \"cụp\", bẻ ra phía trước và xuống phía đầu, từ đó khiến chúng hay được so sánh rằng trông giống cú.', 9, NULL, 90000),
+(38, 13, NULL, 'Chó HusKy Nga', 'https://sieupet.com/sites/default/files/pictures/images/cho-Husky.jpg', 5000000, 'Mẫu ghế sofa đơn đẹp ấn tượng. Sofa đơn mã 069 sẽ giúp bạn tạo nên nét tươi mới, quý phái cho không gian phòng khách của bạn trong những ngày xuân ấm áp này. \r\nKhung gỗ : tự nhiên cao cấp. Chân ghế : tự chọn ( chân inox - chân gỗ). Đệm mút : Cứng hoặc mềm - bông mút ( tùy chọn ). Kích thước sofa văng: 1800 * 800', 9, NULL, 90000),
+(39, 9, NULL, 'Chó Corgi Mỹ', 'https://www.2thucung.com/wp-content/uploads/2021/01/cho-corgi-1.jpg', 3500000, 'Chó Corgi Pembroke Wales là giống chó chăn gia súc có nguồn gốc từ Pembrokeshire, xứ Wales. Nó là một trong hai giống được biết đến với tên gọi chung là Chó Corgi xứ Wales. Giống chó còn lại là giống Chó Corgi Cardigan Wales và cả hai đều có tổ tiên là giống chó đuôi cuộn kiểu Bắc Cực.', 9, NULL, 90000),
+(40, 10, NULL, 'Chó Doberman', 'https://zoipet.com/wp-content/uploads/2021/01/cho-doberman.jpg', 48000000, 'Doberman là tên của một giống chó có thể nuôi để giữ nhà, canh gác hoặc làm nghiệp vụ. Tên gọi đầy đủ và chính xác của nó là Dobermann Pinscher. Dobermann là một trong số ít những loại chó được đặt theo tên người', 9, NULL, 90000),
+(41, 21, NULL, 'Mèo Xiêm VN', 'https://petto.vn/wp-content/uploads/2019/02/meo-xiem.jpg', 5000000, 'Mèo Xiêm là một trong những loài mèo đầu tiên của mèo lông ngắn phương Đông được công nhận. Nguồn gốc của mèo Xiêm cho đến nay vẫn chưa được rõ ràng, nhưng Thái Lan được tin rằng là nơi xuất xứ của nó. Ở Thái Lan - nơi mèo Xiêm là một trong những nòi mèo bản xứ - nó được người dân Thái gọi là Wichian Mat', 9, NULL, 90000),
+(42, 22, NULL, 'Mèo Ba Tư', 'https://petmaster.vn/petroom/wp-content/uploads/2020/04/meo-ba-tu.jpg', 7000000, 'Mèo Ba Tư là một trong những giống mèo cảnh được đông đảo người yêu mèo yêu mến, lựa chọn làm thú cưng trong gia đình. Sở dĩ như vậy là do ngoại hình của chúng mập mạp, đáng yêu với bộ lông vô cùng quyến rũ. Mặc dù giống mèo này chăm sóc khó khăn hơn so với những giống mèo cảnh khác nhưng do ngoại hình quá đẹp và thu hút nên ở nước ta rất nhiều bạn vẫn săn đón mèo Ba Tư. Chính vì thế, trong bài viết này, Petroom sẽ cập nhật đến bạn đầy đủ thông tin về nguồn gốc, những đặc điểm tính cách, ngoại hình cũng như cách nuôi và giá bán mèo Ba Tư.', 9, NULL, 90000),
+(43, 23, NULL, 'Mèo Tai Cụp Scottish Fold', 'https://zoipet.com/wp-content/uploads/2020/03/meo-scottish.jpg', 3500000, 'Mèo tai cụp là một giống mèo nhà với sự đột biến sinh học tự nhiên gen lặn gây ảnh hưởng đến phần sụn toàn thân, khiến cho tai bị \"cụp\", bẻ ra phía trước và xuống phía đầu, từ đó khiến chúng hay được so sánh rằng trông giống cú.', 9, NULL, 90000),
+(44, 13, NULL, 'Chó HusKy Nga', 'https://sieupet.com/sites/default/files/pictures/images/cho-Husky.jpg', 5000000, 'Mẫu ghế sofa đơn đẹp ấn tượng. Sofa đơn mã 069 sẽ giúp bạn tạo nên nét tươi mới, quý phái cho không gian phòng khách của bạn trong những ngày xuân ấm áp này. \r\nKhung gỗ : tự nhiên cao cấp. Chân ghế : tự chọn ( chân inox - chân gỗ). Đệm mút : Cứng hoặc mềm - bông mút ( tùy chọn ). Kích thước sofa văng: 1800 * 800', 9, NULL, 90000),
+(45, 9, NULL, 'Chó Corgi Mỹ', 'https://www.2thucung.com/wp-content/uploads/2021/01/cho-corgi-1.jpg', 3500000, 'Chó Corgi Pembroke Wales là giống chó chăn gia súc có nguồn gốc từ Pembrokeshire, xứ Wales. Nó là một trong hai giống được biết đến với tên gọi chung là Chó Corgi xứ Wales. Giống chó còn lại là giống Chó Corgi Cardigan Wales và cả hai đều có tổ tiên là giống chó đuôi cuộn kiểu Bắc Cực.', 9, NULL, 90000),
+(46, 10, NULL, 'Chó Doberman', 'https://zoipet.com/wp-content/uploads/2021/01/cho-doberman.jpg', 48000000, 'Doberman là tên của một giống chó có thể nuôi để giữ nhà, canh gác hoặc làm nghiệp vụ. Tên gọi đầy đủ và chính xác của nó là Dobermann Pinscher. Dobermann là một trong số ít những loại chó được đặt theo tên người', 9, NULL, 90000),
+(47, 21, NULL, 'Mèo Xiêm VN', 'https://petto.vn/wp-content/uploads/2019/02/meo-xiem.jpg', 5000000, 'Mèo Xiêm là một trong những loài mèo đầu tiên của mèo lông ngắn phương Đông được công nhận. Nguồn gốc của mèo Xiêm cho đến nay vẫn chưa được rõ ràng, nhưng Thái Lan được tin rằng là nơi xuất xứ của nó. Ở Thái Lan - nơi mèo Xiêm là một trong những nòi mèo bản xứ - nó được người dân Thái gọi là Wichian Mat', 9, NULL, 90000),
+(48, 22, NULL, 'Mèo Ba Tư', 'https://petmaster.vn/petroom/wp-content/uploads/2020/04/meo-ba-tu.jpg', 7000000, 'Mèo Ba Tư là một trong những giống mèo cảnh được đông đảo người yêu mèo yêu mến, lựa chọn làm thú cưng trong gia đình. Sở dĩ như vậy là do ngoại hình của chúng mập mạp, đáng yêu với bộ lông vô cùng quyến rũ. Mặc dù giống mèo này chăm sóc khó khăn hơn so với những giống mèo cảnh khác nhưng do ngoại hình quá đẹp và thu hút nên ở nước ta rất nhiều bạn vẫn săn đón mèo Ba Tư. Chính vì thế, trong bài viết này, Petroom sẽ cập nhật đến bạn đầy đủ thông tin về nguồn gốc, những đặc điểm tính cách, ngoại hình cũng như cách nuôi và giá bán mèo Ba Tư.', 9, NULL, 90000),
+(49, 23, NULL, 'Mèo Tai Cụp Scottish Fold', 'https://zoipet.com/wp-content/uploads/2020/03/meo-scottish.jpg', 3500000, 'Mèo tai cụp là một giống mèo nhà với sự đột biến sinh học tự nhiên gen lặn gây ảnh hưởng đến phần sụn toàn thân, khiến cho tai bị \"cụp\", bẻ ra phía trước và xuống phía đầu, từ đó khiến chúng hay được so sánh rằng trông giống cú.', 9, NULL, 90000),
+(50, 13, NULL, 'Chó HusKy Nga', 'https://sieupet.com/sites/default/files/pictures/images/cho-Husky.jpg', 5000000, 'Mẫu ghế sofa đơn đẹp ấn tượng. Sofa đơn mã 069 sẽ giúp bạn tạo nên nét tươi mới, quý phái cho không gian phòng khách của bạn trong những ngày xuân ấm áp này. \r\nKhung gỗ : tự nhiên cao cấp. Chân ghế : tự chọn ( chân inox - chân gỗ). Đệm mút : Cứng hoặc mềm - bông mút ( tùy chọn ). Kích thước sofa văng: 1800 * 800', 9, NULL, 90000),
+(51, 9, NULL, 'Chó Corgi Mỹ', 'https://www.2thucung.com/wp-content/uploads/2021/01/cho-corgi-1.jpg', 3500000, 'Chó Corgi Pembroke Wales là giống chó chăn gia súc có nguồn gốc từ Pembrokeshire, xứ Wales. Nó là một trong hai giống được biết đến với tên gọi chung là Chó Corgi xứ Wales. Giống chó còn lại là giống Chó Corgi Cardigan Wales và cả hai đều có tổ tiên là giống chó đuôi cuộn kiểu Bắc Cực.', 9, NULL, 90000),
+(52, 10, NULL, 'Chó Doberman', 'https://zoipet.com/wp-content/uploads/2021/01/cho-doberman.jpg', 48000000, 'Doberman là tên của một giống chó có thể nuôi để giữ nhà, canh gác hoặc làm nghiệp vụ. Tên gọi đầy đủ và chính xác của nó là Dobermann Pinscher. Dobermann là một trong số ít những loại chó được đặt theo tên người', 9, NULL, 90000),
+(53, 21, NULL, 'Mèo Xiêm VN', 'https://petto.vn/wp-content/uploads/2019/02/meo-xiem.jpg', 5000000, 'Mèo Xiêm là một trong những loài mèo đầu tiên của mèo lông ngắn phương Đông được công nhận. Nguồn gốc của mèo Xiêm cho đến nay vẫn chưa được rõ ràng, nhưng Thái Lan được tin rằng là nơi xuất xứ của nó. Ở Thái Lan - nơi mèo Xiêm là một trong những nòi mèo bản xứ - nó được người dân Thái gọi là Wichian Mat', 9, NULL, 90000),
+(54, 22, NULL, 'Mèo Ba Tư', 'https://petmaster.vn/petroom/wp-content/uploads/2020/04/meo-ba-tu.jpg', 7000000, 'Mèo Ba Tư là một trong những giống mèo cảnh được đông đảo người yêu mèo yêu mến, lựa chọn làm thú cưng trong gia đình. Sở dĩ như vậy là do ngoại hình của chúng mập mạp, đáng yêu với bộ lông vô cùng quyến rũ. Mặc dù giống mèo này chăm sóc khó khăn hơn so với những giống mèo cảnh khác nhưng do ngoại hình quá đẹp và thu hút nên ở nước ta rất nhiều bạn vẫn săn đón mèo Ba Tư. Chính vì thế, trong bài viết này, Petroom sẽ cập nhật đến bạn đầy đủ thông tin về nguồn gốc, những đặc điểm tính cách, ngoại hình cũng như cách nuôi và giá bán mèo Ba Tư.', 9, NULL, 90000),
+(55, 23, NULL, 'Mèo Tai Cụp Scottish Fold', 'https://zoipet.com/wp-content/uploads/2020/03/meo-scottish.jpg', 3500000, 'Mèo tai cụp là một giống mèo nhà với sự đột biến sinh học tự nhiên gen lặn gây ảnh hưởng đến phần sụn toàn thân, khiến cho tai bị \"cụp\", bẻ ra phía trước và xuống phía đầu, từ đó khiến chúng hay được so sánh rằng trông giống cú.', 9, NULL, 90000),
+(56, 13, NULL, 'Chó HusKy Nga', 'https://sieupet.com/sites/default/files/pictures/images/cho-Husky.jpg', 5000000, 'Mẫu ghế sofa đơn đẹp ấn tượng. Sofa đơn mã 069 sẽ giúp bạn tạo nên nét tươi mới, quý phái cho không gian phòng khách của bạn trong những ngày xuân ấm áp này. \r\nKhung gỗ : tự nhiên cao cấp. Chân ghế : tự chọn ( chân inox - chân gỗ). Đệm mút : Cứng hoặc mềm - bông mút ( tùy chọn ). Kích thước sofa văng: 1800 * 800', 9, NULL, 90000),
+(57, NULL, 9, 'Vòng cổ yếm nơ cute cho chó mèo - CutePets', 'https://bizweb.dktcdn.net/thumb/large/100/307/433/products/vong-co-yem-no-cute-cho-cho-meo-cutepets.jpg?v=1584768358277', 450000, '- Kích Thước:  Bản dây rộng 1cm dành cho thú cưng Chu vi vòng cổ :  25 - 33cm\r\n\r\n+ Vòng cổ yếm nơ cute cho thú cưng với thiết kế dày dặn và chắc chắn, chiếc vòng cổ này sẽ nằm thật gọn gàng và êm ái trên cổ chú thú cưng của bạn, sẵn sàng cho mọi chuyến đi dạo hoặc chạy bộ đầy hứng khởi phía trước.\r\n+ Ngoài tác dụng giúp bạn giữ chặt và theo sát chú thú cưng của mình, thời trang của chiếc vòng cổ còn là điểm nhấn nổi bật để chú thú cưng của bạn trông thật “sành điệu”.\r\n+ Vòng cổ yếm nơ cute có nhiều màu sắc cho vật nuôi, giúp cho bạn biết chú thú cưng của mình đang ở đâu, giúp cho vật nuôi không bị lạc,', 10, 'PIPI Hung', 10000),
+(58, 1, NULL, 'test1', '/resources/images/unnamed.jpg', 100000, 'ưerwer', 1, 'abc', 10),
+(59, NULL, 9, ' Vòng cổ Ferplast Ergofluo cho mèo', 'https://sitanguyen.com/wp-content/uploads/2020/04/Ferplast-Ergofluo-V%C3%B2ng-c%E1%BB%95-1.5cm.png', 450000, 'Vòng cổ Ferplast Ergofluo là dòng sản phẩm với thiết kế độc quyền, có hệ thống điều chỉnh chi tiết và tháo gỡ dễ dàng kèm với đó là miếng đệm trong êm ái.\r\n\r\nSản phẩm có nhiều size với độ dài từ 25 – 60cm, bản rộng 15 – 25mm, được làm bằng vải chất lượng cao cho độ bền và mềm mại. Khóa tháo nhanh chắc chắn dễ dàng mở và đóng để đảm bảo an toàn cho thú cưng của bạn.\r\n\r\nFerplast, là công ty có trụ sở tại Castelgomberto (tỉnh Vicenza – Ý), được thành lập vào năm 1966 bởi Carlo Vaccari.\r\n\r\nTrong 50 năm qua, Ferplast đã tham gia nghiên cứu và tạo ra các sản phẩm sáng tạo, an toàn với chất lượng cao nhằm đảm bảo cho sự chăm sóc thoải mái của vật nuôi.', 10, 'Pi Pi Hùng', 10000),
+(60, NULL, 9, ' Vòng cổ mèo xinh', 'https://sitanguyen.com/wp-content/uploads/2020/04/V%C3%B2ng-c%E1%BB%95-m%C3%A8o-xinh.png', 450000, 'Vòng cổ Ferplast Ergofluo là dòng sản phẩm với thiết kế độc quyền, có hệ thống điều chỉnh chi tiết và tháo gỡ dễ dàng kèm với đó là miếng đệm trong êm ái.\r\n\r\nSản phẩm có nhiều size với độ dài từ 25 – 60cm, bản rộng 15 – 25mm, được làm bằng vải chất lượng cao cho độ bền và mềm mại. Khóa tháo nhanh chắc chắn dễ dàng mở và đóng để đảm bảo an toàn cho thú cưng của bạn.\r\n\r\nFerplast, là công ty có trụ sở tại Castelgomberto (tỉnh Vicenza – Ý), được thành lập vào năm 1966 bởi Carlo Vaccari.\r\n\r\nTrong 50 năm qua, Ferplast đã tham gia nghiên cứu và tạo ra các sản phẩm sáng tạo, an toàn với chất lượng cao nhằm đảm bảo cho sự chăm sóc thoải mái của vật nuôi.', 10, 'Pi Pi Hùng', 10000),
+(61, NULL, 9, 'Vòng cổ cho chó mèo cá tính, nhiều mẫu đẹp của Luc', 'https://cf.shopee.vn/file/cd803acc240bd9e47fc2ef3d1e0ef280', 450000, 'Vòng cổ Ferplast Ergofluo là dòng sản phẩm với thiết kế độc quyền, có hệ thống điều chỉnh chi tiết và tháo gỡ dễ dàng kèm với đó là miếng đệm trong êm ái.\r\n\r\nSản phẩm có nhiều size với độ dài từ 25 – 60cm, bản rộng 15 – 25mm, được làm bằng vải chất lượng cao cho độ bền và mềm mại. Khóa tháo nhanh chắc chắn dễ dàng mở và đóng để đảm bảo an toàn cho thú cưng của bạn.\r\n\r\nFerplast, là công ty có trụ sở tại Castelgomberto (tỉnh Vicenza – Ý), được thành lập vào năm 1966 bởi Carlo Vaccari.\r\n\r\nTrong 50 năm qua, Ferplast đã tham gia nghiên cứu và tạo ra các sản phẩm sáng tạo, an toàn với chất lượng cao nhằm đảm bảo cho sự chăm sóc thoải mái của vật nuôi.', 10, 'Pi Pi Hùng', 10000),
+(62, NULL, 9, 'Vòng cổ cho thú cưng Đài Loan', 'https://sitanguyen.com/wp-content/uploads/2020/04/V%C3%B2ng-c%E1%BB%95-cho-th%C3%BA-c%C6%B0ng-30Kg.png', 450000, 'Vòng cổ Ferplast Ergofluo là dòng sản phẩm với thiết kế độc quyền, có hệ thống điều chỉnh chi tiết và tháo gỡ dễ dàng kèm với đó là miếng đệm trong êm ái.\r\n\r\nSản phẩm có nhiều size với độ dài từ 25 – 60cm, bản rộng 15 – 25mm, được làm bằng vải chất lượng cao cho độ bền và mềm mại. Khóa tháo nhanh chắc chắn dễ dàng mở và đóng để đảm bảo an toàn cho thú cưng của bạn.\r\n\r\nFerplast, là công ty có trụ sở tại Castelgomberto (tỉnh Vicenza – Ý), được thành lập vào năm 1966 bởi Carlo Vaccari.\r\n\r\nTrong 50 năm qua, Ferplast đã tham gia nghiên cứu và tạo ra các sản phẩm sáng tạo, an toàn với chất lượng cao nhằm đảm bảo cho sự chăm sóc thoải mái của vật nuôi.', 10, 'Pi Pi Hùng', 10000),
+(63, NULL, 9, 'Vòng cổ cho thú cưng Pet Family in họa tiết hoa', 'https://sitanguyen.com/wp-content/uploads/2020/04/V%C3%B2ng-c%E1%BB%95-cho-th%C3%BA-c%C6%B0ng-Pet-Family-in-h%E1%BB%8Da-ti%E1%BA%BFt-hoa.png', 450000, 'Vòng cổ Ferplast Ergofluo là dòng sản phẩm với thiết kế độc quyền, có hệ thống điều chỉnh chi tiết và tháo gỡ dễ dàng kèm với đó là miếng đệm trong êm ái.\r\n\r\nSản phẩm có nhiều size với độ dài từ 25 – 60cm, bản rộng 15 – 25mm, được làm bằng vải chất lượng cao cho độ bền và mềm mại. Khóa tháo nhanh chắc chắn dễ dàng mở và đóng để đảm bảo an toàn cho thú cưng của bạn.\r\n\r\nFerplast, là công ty có trụ sở tại Castelgomberto (tỉnh Vicenza – Ý), được thành lập vào năm 1966 bởi Carlo Vaccari.\r\n\r\nTrong 50 năm qua, Ferplast đã tham gia nghiên cứu và tạo ra các sản phẩm sáng tạo, an toàn với chất lượng cao nhằm đảm bảo cho sự chăm sóc thoải mái của vật nuôi.', 10, 'Pi Pi Hùng', 10000),
+(64, NULL, 9, 'Vòng đeo cổ cho mèo có chuông cực xinh', 'https://sitanguyen.com/wp-content/uploads/2020/04/vong-co-co-chuong-cho-meo.png', 450000, 'Vòng cổ Ferplast Ergofluo là dòng sản phẩm với thiết kế độc quyền, có hệ thống điều chỉnh chi tiết và tháo gỡ dễ dàng kèm với đó là miếng đệm trong êm ái.\r\n\r\nSản phẩm có nhiều size với độ dài từ 25 – 60cm, bản rộng 15 – 25mm, được làm bằng vải chất lượng cao cho độ bền và mềm mại. Khóa tháo nhanh chắc chắn dễ dàng mở và đóng để đảm bảo an toàn cho thú cưng của bạn.\r\n\r\nFerplast, là công ty có trụ sở tại Castelgomberto (tỉnh Vicenza – Ý), được thành lập vào năm 1966 bởi Carlo Vaccari.\r\n\r\nTrong 50 năm qua, Ferplast đã tham gia nghiên cứu và tạo ra các sản phẩm sáng tạo, an toàn với chất lượng cao nhằm đảm bảo cho sự chăm sóc thoải mái của vật nuôi.', 10, 'Pi Pi Hùng', 10000),
+(65, NULL, 1, 'Dây xích có cánh thiên thần cho chó mèo', 'https://luckypetshop.vn/wp-content/uploads/2020/04/day-xich-hinh-canh-thien-than-cho-cho-meo-600x600.jpg', 90000, 'Dây xích có cánh thiên thần cho chó mèo – sản phẩm được làm từ chất liệu nylon an toàn, có độ bền cao; thiết kế đáng yêu; đa dạng kích cỡ,.. chắc chắn sẽ khiến bé yêu của bạn trông xinh xắn và dễ thương hơn nhiều khi đeo xích đó', 10, 'pipi hung', 10000),
+(66, NULL, 1, 'Dây dắt tự động cho chó mèo 5m', 'https://luckypetshop.vn/wp-content/uploads/2019/12/day-dat-tu-dong-cho-cho-meo-5m-1-600x600.jpg', 90000, 'Dây xích có cánh thiên thần cho chó mèo – sản phẩm được làm từ chất liệu nylon an toàn, có độ bền cao; thiết kế đáng yêu; đa dạng kích cỡ,.. chắc chắn sẽ khiến bé yêu của bạn trông xinh xắn và dễ thương hơn nhiều khi đeo xích đó', 10, 'pipi hung', 10000),
+(67, NULL, 1, 'Dây xích yếm 2 lớp cho chó mèo', 'https://luckypetshop.vn/wp-content/uploads/2019/12/day-xich-yem-hai-lop-cho-cho-meo-1-600x600.jpg', 90000, 'Dây xích có cánh thiên thần cho chó mèo – sản phẩm được làm từ chất liệu nylon an toàn, có độ bền cao; thiết kế đáng yêu; đa dạng kích cỡ,.. chắc chắn sẽ khiến bé yêu của bạn trông xinh xắn và dễ thương hơn nhiều khi đeo xích đó', 10, 'pipi hung', 10000),
+(68, NULL, 1, 'Dây xích inox dắt thú cưng kèm vòng cổ', 'https://vn-test-11.slatic.net/p/4e19bf521e98ef225af33d23a709313a.jpg', 90000, 'Dây xích có cánh thiên thần cho chó mèo – sản phẩm được làm từ chất liệu nylon an toàn, có độ bền cao; thiết kế đáng yêu; đa dạng kích cỡ,.. chắc chắn sẽ khiến bé yêu của bạn trông xinh xắn và dễ thương hơn nhiều khi đeo xích đó', 10, 'pipi hung', 10000),
+(69, NULL, 1, 'Dây xích Chó Da - Dây dắt chó pitbull,rottweiler,n', 'https://cf.shopee.vn/file/11bb2dae95d364d4ac6680904fcda87a', 90000, 'Dây xích có cánh thiên thần cho chó mèo – sản phẩm được làm từ chất liệu nylon an toàn, có độ bền cao; thiết kế đáng yêu; đa dạng kích cỡ,.. chắc chắn sẽ khiến bé yêu của bạn trông xinh xắn và dễ thương hơn nhiều khi đeo xích đó', 10, 'pipi hung', 10000),
+(70, NULL, 1, 'Dây xích đai đeo người cho cún chó mèo', 'https://cf.shopee.vn/file/e01659174d7d772f606cfb356100165a', 90000, 'Dây xích có cánh thiên thần cho chó mèo – sản phẩm được làm từ chất liệu nylon an toàn, có độ bền cao; thiết kế đáng yêu; đa dạng kích cỡ,.. chắc chắn sẽ khiến bé yêu của bạn trông xinh xắn và dễ thương hơn nhiều khi đeo xích đó', 10, 'pipi hung', 10000),
+(71, NULL, 1, 'Dây yếm đai người cho chó mèo', 'https://cf.shopee.vn/file/553702d5e41996bc66fa7d0d8d981847', 90000, 'Dây xích có cánh thiên thần cho chó mèo – sản phẩm được làm từ chất liệu nylon an toàn, có độ bền cao; thiết kế đáng yêu; đa dạng kích cỡ,.. chắc chắn sẽ khiến bé yêu của bạn trông xinh xắn và dễ thương hơn nhiều khi đeo xích đó', 10, 'pipi hung', 10000),
+(72, NULL, 1, 'Dây dắt chó Uncle Bills PG0012', 'https://cf.shopee.vn/file/ce8ff715ae0d67e8137f50aa0f2a5cb1', 90000, 'Dây xích có cánh thiên thần cho chó mèo – sản phẩm được làm từ chất liệu nylon an toàn, có độ bền cao; thiết kế đáng yêu; đa dạng kích cỡ,.. chắc chắn sẽ khiến bé yêu của bạn trông xinh xắn và dễ thương hơn nhiều khi đeo xích đó', 10, 'pipi hung', 10000),
+(73, NULL, 1, 'Dây Dắt Chó Mèo - Dây Dắt Kèm Đai Yếm Cho Chó Mèo', 'https://cf.shopee.vn/file/19e08171cd89798a6a0e6d0bf1514c25', 90000, 'Dây xích có cánh thiên thần cho chó mèo – sản phẩm được làm từ chất liệu nylon an toàn, có độ bền cao; thiết kế đáng yêu; đa dạng kích cỡ,.. chắc chắn sẽ khiến bé yêu của bạn trông xinh xắn và dễ thương hơn nhiều khi đeo xích đó', 10, 'pipi hung', 10000),
+(74, NULL, 2, 'LƯỢC CHẢI LÔNG CHÓ MÈO BOBO', 'http://lonapetsdreamland.vn/Media/Product/200518103433/l%C6%B0%E1%BB%A3c.jpg', 9000000, 'Lược chải lông chó mèo đầu lưỡi mềm BOBO Pet Comb giúp cho thú cưng nhà bạn có bộ lông đẹp ngay tại nhà. Với phần cán bằng inox chắc chắn. Tay cầm vừa vặn có lớp nhựa chống trơn trượt. Bạn có thể dễ dàng sử dụng, chải từng lớp lông rối, rụng của thú cưng một cách hiệu quả. Loại bỏ hầu hết các phần lông chết trên cơ thể của cún cưng. Không gây kích ứng da và cảm giác khó chịu. Phần răng lược mềm mại tạo cảm giác thoải mái nhất cho những người bạn 4 chân.', 10, 'pipi hung', 10000),
+(75, NULL, 2, 'LƯỢC CHẢI LÔNG CHÓ MÈO BOBO', 'http://lonapetsdreamland.vn/Media/Product/200518103433/l%C6%B0%E1%BB%A3c.jpg', 9000000, NULL, 10, 'pipi hung', 10000),
+(76, NULL, 2, 'MÁY SẤY LÔNG CHO CHÓ MÈO', 'http://lonapetsdreamland.vn/Media/Product/200518103336/m%C3%A1y-s%C3%A1y.jpg', 9000000, NULL, 10, 'pipi hung', 10000),
+(77, NULL, 2, 'TÔNG ĐƠ CẠO LÔNG CHÓ MÈO CP6800', 'http://lonapetsdreamland.vn/Media/Product/200518104332/tongdo.jpg', 9000000, NULL, 10, 'pipi hung', 10000),
+(78, NULL, 2, 'VNPET FAMILY KIỀM CẮT MÓNG THẲNG', 'http://lonapetsdreamland.vn/Media/Product/200518191500/sp02.jpg', 9000000, NULL, 10, 'pipi hung', 10000),
+(79, NULL, 2, 'VNSLC 5055 LƯỢC SIZE S-M-L 18*3.5', 'http://lonapetsdreamland.vn/Media/Product/200518193652/sp22.jpg', 9000000, NULL, 10, 'pipi hung', 10000),
+(80, NULL, 2, 'BAO TAY TẮM - MASSAGE THÚ CƯNG', 'http://lonapetsdreamland.vn/Media/Product/200518104633/baotay.jpg', 9000000, NULL, 10, 'pipi hung', 10000),
+(81, NULL, 2, 'KỀM CẮT 16.5*5.2', 'http://lonapetsdreamland.vn/Media/Product/200518191904/sp11-13.jpg', 9000000, NULL, 10, 'pipi hung', 10000),
+(82, NULL, 2, 'LƯỢC GỖ TRÒN M', 'http://lonapetsdreamland.vn/Media/Product/200518193730/sp27.jpg', 9000000, NULL, 10, 'pipi hung', 10000),
+(83, NULL, 3, 'Sữa Tắm Dược Liệu - Cải Thiện Tình Trạng Da', 'https://img.my-best.vn/press_component/images/2d35d0e7be8a4f674b9ab57e07f346e9.jpeg?ixlib=rails-4.2.0&q=70&lossless=0&w=690&fit=max&s=200b00cd71f68631', 9000000, 'Tuỳ theo triệu chứng và các vấn đề về da của bé cún mà bạn nên lựa chọn sữa tắm dược liệu tương ứng dành cho chó của mình. Có đa dạng các loại sản phẩm khác nhau như tiêu diệt vi khuẩn, nấm mốc, làm sạch bã nhờn, tế bào chết trên da hay các sản phẩm chứa thành phần kiểm soát bọ chét, rận và ngăn ngừa ký sinh trùng. \r\n\r\n\r\nNếu da của bé cún có dấu hiệu bị khô, lông thô ráp, hãy chọn sữa tắm có chứa các thành phần giữ ẩm như Ceramide hay axit Hyaluronic.', 10, 'PI PI Hung', 90000),
+(84, NULL, 3, 'Sữa Tắm Làm Đẹp Lông - Chắm Sóc Lông Mềm Mượt, Sạc', 'https://img.my-best.vn/press_component/images/b4762ba2e0fafab04f9024a952eeb1af.jpeg?ixlib=rails-4.2.0&q=70&lossless=0&w=690&fit=max&s=0f08cf448b4fc3cb', 9000000, 'Tuỳ theo triệu chứng và các vấn đề về da của bé cún mà bạn nên lựa chọn sữa tắm dược liệu tương ứng dành cho chó của mình. Có đa dạng các loại sản phẩm khác nhau như tiêu diệt vi khuẩn, nấm mốc, làm sạch bã nhờn, tế bào chết trên da hay các sản phẩm chứa thành phần kiểm soát bọ chét, rận và ngăn ngừa ký sinh trùng. \r\n\r\n\r\nNếu da của bé cún có dấu hiệu bị khô, lông thô ráp, hãy chọn sữa tắm có chứa các thành phần giữ ẩm như Ceramide hay axit Hyaluronic.', 10, 'PI PI Hung', 90000),
+(85, NULL, 3, 'Sữa Tắm Chó Mèo Bio Jolie Dưỡng Da', 'https://img.my-best.vn/press_component/item_part_images/b01bf501d6e0eb7986252f0f1f96b073.png?ixlib=rails-4.2.0&q=70&lossless=0&w=640&h=640&fit=clip&s=', 9000000, 'Sữa tắm Bio Jolie chứa các thành phần dưỡng chất chăm sóc da như vitamin E, vitamin B6, giúp da và bộ lông cún cưng luôn sạch sẽ mượt mà, khử sạch mùi hôi khó chịu. \r\nKhông những vậy sản phẩm còn được đánh giá là hạn chế tình trạng rụng lông của cún, giúp cún cưng có làn da khoẻ mạnh và một bộ lông dày bồng bắt mắt. Ngoài sử dụng cho chó, bạn cũng có thể sửa dụng sản phẩm cho các chú mèo cưng nhà mình nữa đó.', 10, 'PI PI Hung', 90000),
+(86, NULL, 3, 'Sữa Tắm Chó Chiết Xuất Yến Mạch', 'https://img.my-best.vn/press_component/item_part_images/05b601cba4b65ff42aabecdcd6a453dd.png?ixlib=rails-4.2.0&q=70&lossless=0&w=640&h=640&fit=clip&s=', 9000000, 'Tuỳ theo triệu chứng và các vấn đề về da của bé cún mà bạn nên lựa chọn sữa tắm dược liệu tương ứng dành cho chó của mình. Có đa dạng các loại sản phẩm khác nhau như tiêu diệt vi khuẩn, nấm mốc, làm sạch bã nhờn, tế bào chết trên da hay các sản phẩm chứa thành phần kiểm soát bọ chét, rận và ngăn ngừa ký sinh trùng. \r\n\r\n\r\nNếu da của bé cún có dấu hiệu bị khô, lông thô ráp, hãy chọn sữa tắm có chứa các thành phần giữ ẩm như Ceramide hay axit Hyaluronic.', 10, 'PI PI Hung', 90000),
+(87, NULL, 3, 'Sữa Tắm Chó Trixie Honig Shampoo', 'https://img.my-best.vn/press_component/item_part_images/31829e00155ae8206f95bf6d4c4f9544.png?ixlib=rails-4.2.0&q=70&lossless=0&w=640&h=640&fit=clip&s=', 9000000, 'Tuỳ theo triệu chứng và các vấn đề về da của bé cún mà bạn nên lựa chọn sữa tắm dược liệu tương ứng dành cho chó của mình. Có đa dạng các loại sản phẩm khác nhau như tiêu diệt vi khuẩn, nấm mốc, làm sạch bã nhờn, tế bào chết trên da hay các sản phẩm chứa thành phần kiểm soát bọ chét, rận và ngăn ngừa ký sinh trùng. \r\n\r\n\r\nNếu da của bé cún có dấu hiệu bị khô, lông thô ráp, hãy chọn sữa tắm có chứa các thành phần giữ ẩm như Ceramide hay axit Hyaluronic.', 10, 'PI PI Hung', 90000),
+(88, NULL, 3, 'Sữa Tắm Chó Mild Puppy', 'https://img.my-best.vn/press_component/item_part_images/7e159e19c56f0ba191a6dfb02221f240.png?ixlib=rails-4.2.0&q=70&lossless=0&w=640&h=640&fit=clip&s=', 9000000, 'Tuỳ theo triệu chứng và các vấn đề về da của bé cún mà bạn nên lựa chọn sữa tắm dược liệu tương ứng dành cho chó của mình. Có đa dạng các loại sản phẩm khác nhau như tiêu diệt vi khuẩn, nấm mốc, làm sạch bã nhờn, tế bào chết trên da hay các sản phẩm chứa thành phần kiểm soát bọ chét, rận và ngăn ngừa ký sinh trùng. \r\n\r\n\r\nNếu da của bé cún có dấu hiệu bị khô, lông thô ráp, hãy chọn sữa tắm có chứa các thành phần giữ ẩm như Ceramide hay axit Hyaluronic.', 10, 'PI PI Hung', 90000),
+(89, NULL, 3, 'Sữa Tắm Chó Olive Essence', 'https://img.my-best.vn/press_component/item_part_images/8cfbee6291d6caf340f85f2ccecbf65c.png?ixlib=rails-4.2.0&q=70&lossless=0&w=640&h=640&fit=clip&s=', 9000000, 'Tuỳ theo triệu chứng và các vấn đề về da của bé cún mà bạn nên lựa chọn sữa tắm dược liệu tương ứng dành cho chó của mình. Có đa dạng các loại sản phẩm khác nhau như tiêu diệt vi khuẩn, nấm mốc, làm sạch bã nhờn, tế bào chết trên da hay các sản phẩm chứa thành phần kiểm soát bọ chét, rận và ngăn ngừa ký sinh trùng. \r\n\r\n\r\nNếu da của bé cún có dấu hiệu bị khô, lông thô ráp, hãy chọn sữa tắm có chứa các thành phần giữ ẩm như Ceramide hay axit Hyaluronic.', 10, 'PI PI Hung', 90000),
+(90, NULL, 3, 'Sữa Tắm Chó Bio Care', 'https://img.my-best.vn/press_component/item_part_images/ac55c1b3cd53c7c94b2ebbb37dd230c3.png?ixlib=rails-4.2.0&q=70&lossless=0&w=640&h=640&fit=clip&s=', 9000000, 'Tuỳ theo triệu chứng và các vấn đề về da của bé cún mà bạn nên lựa chọn sữa tắm dược liệu tương ứng dành cho chó của mình. Có đa dạng các loại sản phẩm khác nhau như tiêu diệt vi khuẩn, nấm mốc, làm sạch bã nhờn, tế bào chết trên da hay các sản phẩm chứa thành phần kiểm soát bọ chét, rận và ngăn ngừa ký sinh trùng. \r\n\r\n\r\nNếu da của bé cún có dấu hiệu bị khô, lông thô ráp, hãy chọn sữa tắm có chứa các thành phần giữ ẩm như Ceramide hay axit Hyaluronic.', 10, 'PI PI Hung', 90000),
+(91, NULL, 4, 'Khay đựng thức ăn cho chó mèo - khay ăn chén đôi c', 'https://media3.scdn.vn/img4/2021/01_02/wjZNZHOYHdZkOJcPy1X5.jpg', 450000, 'Khay đựng thức ăn cho chó mèo Khay đựng thức ăn cho chó mèo được làm từ chất liệu nhựa cao cấp\r\nĐặc trưng:\r\n1. Bạn có thể đặt nước và thức ăn cùng một lúc.\r\n2.Nó tiện lợi và bền.\r\n3. Vật liệu là nhựa cao cấp, dễ vệ sinh\r\n4. An toàn, không độc hại, an toàn khi ăn\r\nCHÉN ĐÔI MICA CHO THU CƯNG Sản phẩm được làm từ chất liệu bột tre không gây hại, không làm ảnh hưởng đến chất lượng thức ăn, màu sắc bất mắt giúp thú cưng ăn ngon mệng hơn .\r\n+ Kích thước: 24*14*4.8cm\r\n+ Sản phẩm xứng đáng là sự lựa chọn lý tưởng của bạn dành cho thú cưng.\r\n+ Bề mặt trơn láng, dễ dàng chùi rửa sạch sẽ sau khi sử dụng. Bát ăn cho chó mèo, chất liệu tốt, bền, đẹp, không độc hại, không kích ứng với ', 10, 'Pi Pi Hung', 10000),
+(92, NULL, 4, 'khay đựng thức ăn inox - Khay vuông inox đựng thức', 'https://media3.scdn.vn/img4/2020/10_01/ol3DObbYtvsanc2JebnG.jpg', 450000, 'Khay đựng thức ăn cho chó mèo Khay đựng thức ăn cho chó mèo được làm từ chất liệu nhựa cao cấp\r\nĐặc trưng:\r\n1. Bạn có thể đặt nước và thức ăn cùng một lúc.\r\n2.Nó tiện lợi và bền.\r\n3. Vật liệu là nhựa cao cấp, dễ vệ sinh\r\n4. An toàn, không độc hại, an toàn khi ăn\r\nCHÉN ĐÔI MICA CHO THU CƯNG Sản phẩm được làm từ chất liệu bột tre không gây hại, không làm ảnh hưởng đến chất lượng thức ăn, màu sắc bất mắt giúp thú cưng ăn ngon mệng hơn .\r\n+ Kích thước: 24*14*4.8cm\r\n+ Sản phẩm xứng đáng là sự lựa chọn lý tưởng của bạn dành cho thú cưng.\r\n+ Bề mặt trơn láng, dễ dàng chùi rửa sạch sẽ sau khi sử dụng. Bát ăn cho chó mèo, chất liệu tốt, bền, đẹp, không độc hại, không kích ứng với ', 10, 'Pi Pi Hung', 10000),
+(93, NULL, 4, 'Khay đựng thức ăn chó mèo tự động', 'https://media3.scdn.vn/img4/2020/11_04/nado92SF0ioGafN0h3uh.jpg', 450000, 'Khay đựng thức ăn cho chó mèo Khay đựng thức ăn cho chó mèo được làm từ chất liệu nhựa cao cấp\r\nĐặc trưng:\r\n1. Bạn có thể đặt nước và thức ăn cùng một lúc.\r\n2.Nó tiện lợi và bền.\r\n3. Vật liệu là nhựa cao cấp, dễ vệ sinh\r\n4. An toàn, không độc hại, an toàn khi ăn\r\nCHÉN ĐÔI MICA CHO THU CƯNG Sản phẩm được làm từ chất liệu bột tre không gây hại, không làm ảnh hưởng đến chất lượng thức ăn, màu sắc bất mắt giúp thú cưng ăn ngon mệng hơn .\r\n+ Kích thước: 24*14*4.8cm\r\n+ Sản phẩm xứng đáng là sự lựa chọn lý tưởng của bạn dành cho thú cưng.\r\n+ Bề mặt trơn láng, dễ dàng chùi rửa sạch sẽ sau khi sử dụng. Bát ăn cho chó mèo, chất liệu tốt, bền, đẹp, không độc hại, không kích ứng với ', 10, 'Pi Pi Hung', 10000),
+(94, NULL, 4, 'Khay đựng thức ăn cho chó mèo - khay đôi chất liệu', 'https://media3.scdn.vn/img4/2020/02_22/MEG4yXU2ch4IBGC0eDu4.jpg', 450000, 'Khay đựng thức ăn cho chó mèo Khay đựng thức ăn cho chó mèo được làm từ chất liệu nhựa cao cấp\r\nĐặc trưng:\r\n1. Bạn có thể đặt nước và thức ăn cùng một lúc.\r\n2.Nó tiện lợi và bền.\r\n3. Vật liệu là nhựa cao cấp, dễ vệ sinh\r\n4. An toàn, không độc hại, an toàn khi ăn\r\nCHÉN ĐÔI MICA CHO THU CƯNG Sản phẩm được làm từ chất liệu bột tre không gây hại, không làm ảnh hưởng đến chất lượng thức ăn, màu sắc bất mắt giúp thú cưng ăn ngon mệng hơn .\r\n+ Kích thước: 24*14*4.8cm\r\n+ Sản phẩm xứng đáng là sự lựa chọn lý tưởng của bạn dành cho thú cưng.\r\n+ Bề mặt trơn láng, dễ dàng chùi rửa sạch sẽ sau khi sử dụng. Bát ăn cho chó mèo, chất liệu tốt, bền, đẹp, không độc hại, không kích ứng với ', 10, 'Pi Pi Hung', 10000),
+(95, NULL, 4, 'Khay đôi đựng thức ăn cho chó mèo, chống rơi ra sà', 'https://media3.scdn.vn/img3/2019/12_12/ZwtQQj.jpg', 450000, 'Khay đựng thức ăn cho chó mèo Khay đựng thức ăn cho chó mèo được làm từ chất liệu nhựa cao cấp\r\nĐặc trưng:\r\n1. Bạn có thể đặt nước và thức ăn cùng một lúc.\r\n2.Nó tiện lợi và bền.\r\n3. Vật liệu là nhựa cao cấp, dễ vệ sinh\r\n4. An toàn, không độc hại, an toàn khi ăn\r\nCHÉN ĐÔI MICA CHO THU CƯNG Sản phẩm được làm từ chất liệu bột tre không gây hại, không làm ảnh hưởng đến chất lượng thức ăn, màu sắc bất mắt giúp thú cưng ăn ngon mệng hơn .\r\n+ Kích thước: 24*14*4.8cm\r\n+ Sản phẩm xứng đáng là sự lựa chọn lý tưởng của bạn dành cho thú cưng.\r\n+ Bề mặt trơn láng, dễ dàng chùi rửa sạch sẽ sau khi sử dụng. Bát ăn cho chó mèo, chất liệu tốt, bền, đẹp, không độc hại, không kích ứng với ', 10, 'Pi Pi Hung', 10000),
+(96, NULL, 4, 'Khay Bát Đôi Đựng Thức Ăn Cho Thú Cưng Chó Mèo Hìn', 'https://media3.scdn.vn/img4/2022/01_09/BDkfnD8Jtr8vnrLxfuQY.png', 450000, 'Khay đựng thức ăn cho chó mèo Khay đựng thức ăn cho chó mèo được làm từ chất liệu nhựa cao cấp\r\nĐặc trưng:\r\n1. Bạn có thể đặt nước và thức ăn cùng một lúc.\r\n2.Nó tiện lợi và bền.\r\n3. Vật liệu là nhựa cao cấp, dễ vệ sinh\r\n4. An toàn, không độc hại, an toàn khi ăn\r\nCHÉN ĐÔI MICA CHO THU CƯNG Sản phẩm được làm từ chất liệu bột tre không gây hại, không làm ảnh hưởng đến chất lượng thức ăn, màu sắc bất mắt giúp thú cưng ăn ngon mệng hơn .\r\n+ Kích thước: 24*14*4.8cm\r\n+ Sản phẩm xứng đáng là sự lựa chọn lý tưởng của bạn dành cho thú cưng.\r\n+ Bề mặt trơn láng, dễ dàng chùi rửa sạch sẽ sau khi sử dụng. Bát ăn cho chó mèo, chất liệu tốt, bền, đẹp, không độc hại, không kích ứng với ', 10, 'Pi Pi Hung', 10000),
+(97, NULL, 4, 'Khay đựng thức ăn đôi chống rơi ra sàn bát ăn cho ', 'https://media3.scdn.vn/img4/2020/01_18/NROyZ6tMTvrkjyKARzhP.jpg', 450000, 'Khay đựng thức ăn cho chó mèo Khay đựng thức ăn cho chó mèo được làm từ chất liệu nhựa cao cấp\r\nĐặc trưng:\r\n1. Bạn có thể đặt nước và thức ăn cùng một lúc.\r\n2.Nó tiện lợi và bền.\r\n3. Vật liệu là nhựa cao cấp, dễ vệ sinh\r\n4. An toàn, không độc hại, an toàn khi ăn\r\nCHÉN ĐÔI MICA CHO THU CƯNG Sản phẩm được làm từ chất liệu bột tre không gây hại, không làm ảnh hưởng đến chất lượng thức ăn, màu sắc bất mắt giúp thú cưng ăn ngon mệng hơn .\r\n+ Kích thước: 24*14*4.8cm\r\n+ Sản phẩm xứng đáng là sự lựa chọn lý tưởng của bạn dành cho thú cưng.\r\n+ Bề mặt trơn láng, dễ dàng chùi rửa sạch sẽ sau khi sử dụng. Bát ăn cho chó mèo, chất liệu tốt, bền, đẹp, không độc hại, không kích ứng với ', 10, 'Pi Pi Hung', 10000),
+(98, NULL, 4, 'Khay đựng thức ăn cho chó mèo 18cm', 'https://media3.scdn.vn/img2/2018/4_4/gDu7cV.png', 450000, 'Khay đựng thức ăn cho chó mèo Khay đựng thức ăn cho chó mèo được làm từ chất liệu nhựa cao cấp\r\nĐặc trưng:\r\n1. Bạn có thể đặt nước và thức ăn cùng một lúc.\r\n2.Nó tiện lợi và bền.\r\n3. Vật liệu là nhựa cao cấp, dễ vệ sinh\r\n4. An toàn, không độc hại, an toàn khi ăn\r\nCHÉN ĐÔI MICA CHO THU CƯNG Sản phẩm được làm từ chất liệu bột tre không gây hại, không làm ảnh hưởng đến chất lượng thức ăn, màu sắc bất mắt giúp thú cưng ăn ngon mệng hơn .\r\n+ Kích thước: 24*14*4.8cm\r\n+ Sản phẩm xứng đáng là sự lựa chọn lý tưởng của bạn dành cho thú cưng.\r\n+ Bề mặt trơn láng, dễ dàng chùi rửa sạch sẽ sau khi sử dụng. Bát ăn cho chó mèo, chất liệu tốt, bền, đẹp, không độc hại, không kích ứng với ', 10, 'Pi Pi Hung', 10000),
+(99, NULL, 4, 'Khay đựng thức ăn cho chó mèo', 'https://media3.scdn.vn/img4/2020/11_25/6J2UfSEZHzVIQjxEQIoG.jpg', 450000, 'Khay đựng thức ăn cho chó mèo Khay đựng thức ăn cho chó mèo được làm từ chất liệu nhựa cao cấp\r\nĐặc trưng:\r\n1. Bạn có thể đặt nước và thức ăn cùng một lúc.\r\n2.Nó tiện lợi và bền.\r\n3. Vật liệu là nhựa cao cấp, dễ vệ sinh\r\n4. An toàn, không độc hại, an toàn khi ăn\r\nCHÉN ĐÔI MICA CHO THU CƯNG Sản phẩm được làm từ chất liệu bột tre không gây hại, không làm ảnh hưởng đến chất lượng thức ăn, màu sắc bất mắt giúp thú cưng ăn ngon mệng hơn .\r\n+ Kích thước: 24*14*4.8cm\r\n+ Sản phẩm xứng đáng là sự lựa chọn lý tưởng của bạn dành cho thú cưng.\r\n+ Bề mặt trơn láng, dễ dàng chùi rửa sạch sẽ sau khi sử dụng. Bát ăn cho chó mèo, chất liệu tốt, bền, đẹp, không độc hại, không kích ứng với ', 10, 'Pi Pi Hung', 10000);
+INSERT INTO `product` (`product_id`, `category_id`, `catergoty_givepet_id`, `product_name`, `product_image`, `product_price`, `product_description`, `product_quantity`, `product_provider`, `product_buy`) VALUES
+(100, NULL, 5, 'BALO PHI HÀNH TRONG SUỐT', 'http://lonapetsdreamland.vn/Media/Product/200515234751/5.jpg', 9000000, 'Balo Phi Hành Gia trong suốt cho chó mèo mẫu mới với màu sắc ngọt ngào, độc lạ.\r\n\r\nBalo được thiết kế nhiều lỗ thông khí và lưới cho thú cưng 1 không gian thoải mái.\r\n\r\nMặt trước balo bằng nhựa trong suốt giúp thú cưng dễ dàng tương tác với thế giới bên ngoài.', 10, 'PI Pi Hung', 10000),
+(101, NULL, 5, 'XB9 BALO VẢI HOA VÂN 33*23*40', 'http://lonapetsdreamland.vn/Media/Product/200515223310/balo-vai-hoa-van-3.jpg', 9000000, 'Balo Phi Hành Gia trong suốt cho chó mèo mẫu mới với màu sắc ngọt ngào, độc lạ.\r\n\r\nBalo được thiết kế nhiều lỗ thông khí và lưới cho thú cưng 1 không gian thoải mái.\r\n\r\nMặt trước balo bằng nhựa trong suốt giúp thú cưng dễ dàng tương tác với thế giới bên ngoài.', 10, 'PI Pi Hung', 10000),
+(102, NULL, 5, 'VNSLC JB1 BALO PHI HÀNH 30*42*25', 'http://lonapetsdreamland.vn/Media/Product/200515223842/1.png', 9000000, 'Balo Phi Hành Gia trong suốt cho chó mèo mẫu mới với màu sắc ngọt ngào, độc lạ.\r\n\r\nBalo được thiết kế nhiều lỗ thông khí và lưới cho thú cưng 1 không gian thoải mái.\r\n\r\nMặt trước balo bằng nhựa trong suốt giúp thú cưng dễ dàng tương tác với thế giới bên ngoài.', 10, 'PI Pi Hung', 10000),
+(103, NULL, 5, 'VNSLC JB4 BALO PHI HÀNH HOA VÂN 31*26*40', 'http://lonapetsdreamland.vn/Media/Product/200515224155/6.png', 9000000, 'Balo Phi Hành Gia trong suốt cho chó mèo mẫu mới với màu sắc ngọt ngào, độc lạ.\r\n\r\nBalo được thiết kế nhiều lỗ thông khí và lưới cho thú cưng 1 không gian thoải mái.\r\n\r\nMặt trước balo bằng nhựa trong suốt giúp thú cưng dễ dàng tương tác với thế giới bên ngoài.', 10, 'PI Pi Hung', 10000),
+(104, NULL, 5, 'VNSLC SB10 BALO HÌNH 33*23*40', 'http://lonapetsdreamland.vn/Media/Product/200515224348/3.png', 9000000, 'Balo Phi Hành Gia trong suốt cho chó mèo mẫu mới với màu sắc ngọt ngào, độc lạ.\r\n\r\nBalo được thiết kế nhiều lỗ thông khí và lưới cho thú cưng 1 không gian thoải mái.\r\n\r\nMặt trước balo bằng nhựa trong suốt giúp thú cưng dễ dàng tương tác với thế giới bên ngoài.', 10, 'PI Pi Hung', 10000),
+(105, NULL, 5, 'LỒNG VẬN CHUYỂN HÀNG KHÔNG HỌA TIẾT T150', 'http://lonapetsdreamland.vn/Media/Product/200516103339/15.jpg', 9000000, 'Balo Phi Hành Gia trong suốt cho chó mèo mẫu mới với màu sắc ngọt ngào, độc lạ.\r\n\r\nBalo được thiết kế nhiều lỗ thông khí và lưới cho thú cưng 1 không gian thoải mái.\r\n\r\nMặt trước balo bằng nhựa trong suốt giúp thú cưng dễ dàng tương tác với thế giới bên ngoài.', 10, 'PI Pi Hung', 10000),
+(106, NULL, 5, 'VNSLC JB9 BALO PHI HANH NHỰA PE 40*31*21.5', 'http://lonapetsdreamland.vn/Media/Product/200515224931/4.png', 9000000, 'Balo Phi Hành Gia trong suốt cho chó mèo mẫu mới với màu sắc ngọt ngào, độc lạ.\r\n\r\nBalo được thiết kế nhiều lỗ thông khí và lưới cho thú cưng 1 không gian thoải mái.\r\n\r\nMặt trước balo bằng nhựa trong suốt giúp thú cưng dễ dàng tương tác với thế giới bên ngoài.', 10, 'PI Pi Hung', 10000),
+(107, NULL, 5, 'ĐỊU THÚ CƯNG CAO CẤP', 'http://lonapetsdreamland.vn/Media/Product/200516110115/%C4%91%E1%BB%8Bu.jpg', 9000000, 'Balo Phi Hành Gia trong suốt cho chó mèo mẫu mới với màu sắc ngọt ngào, độc lạ.\r\n\r\nBalo được thiết kế nhiều lỗ thông khí và lưới cho thú cưng 1 không gian thoải mái.\r\n\r\nMặt trước balo bằng nhựa trong suốt giúp thú cưng dễ dàng tương tác với thế giới bên ngoài.', 10, 'PI Pi Hung', 10000),
+(108, NULL, 5, 'VNSLC XB24 BALO XẾP GỌN PU 29*15.5*38', 'http://lonapetsdreamland.vn/Media/Product/200515234451/11.jpg', 9000000, 'Balo Phi Hành Gia trong suốt cho chó mèo mẫu mới với màu sắc ngọt ngào, độc lạ.\r\n\r\nBalo được thiết kế nhiều lỗ thông khí và lưới cho thú cưng 1 không gian thoải mái.\r\n\r\nMặt trước balo bằng nhựa trong suốt giúp thú cưng dễ dàng tương tác với thế giới bên ngoài.', 10, 'PI Pi Hung', 10000),
+(109, NULL, 6, 'PURMI KHAY VS LƯỚI CHO CHÓ', 'http://lonapetsdreamland.vn/Media/Product/200516114557/toilet.jpg', 3500000, 'Khay vệ sinh lưới lót bỉm cho chó\r\nNguồn gốc:Hàn Quốc\r\nThương hiệu: Purmipet\r\nĐối tượng:dùng cho chó vừa và nhỏ\r\nMàu sắc: Xanh lá\r\nKích thước: 51cm x 41cm\r\nCông dụng sản phẩm:\r\n\r\nKhi đi tiểu tiện toilet sẽ nhanh chóng chảy xuống dưới không dính vào chân của vật nuôi đồng thời  toilet có khoảng không giữa mặt trên và dưới giúp bề mặt phía trên khô thoáng sạch sẽ.\r\n\r\nKhông cần nhiều thao tác bạn chỉ cần ấn nhẹ một lần là có thể nắp hai mặt của toilets lại với nhau dù thú cưng có dùng miệng cắn hay đùa nghịch thì mặt trên và dưới của toilet cũng không bị tách rời.\r\n\r\nMặt dưới tiếp xúc với sản nhà có để bằng cao su giúp chống trơn trượt.\r\n\r\nBạn có thể dễ dàng tách rời và vệ sinh sản phẩm, có thể sử dụng cả tấm lót vệ sinh.', 10, 'Pi Pi Hung', 90000),
+(110, NULL, 6, 'LƯỚI VỈ 35*45', 'http://lonapetsdreamland.vn/Media/Product/200516120944/li.jpg', 3500000, 'Khay vệ sinh lưới lót bỉm cho chó\r\nNguồn gốc:Hàn Quốc\r\nThương hiệu: Purmipet\r\nĐối tượng:dùng cho chó vừa và nhỏ\r\nMàu sắc: Xanh lá\r\nKích thước: 51cm x 41cm\r\nCông dụng sản phẩm:\r\n\r\nKhi đi tiểu tiện toilet sẽ nhanh chóng chảy xuống dưới không dính vào chân của vật nuôi đồng thời  toilet có khoảng không giữa mặt trên và dưới giúp bề mặt phía trên khô thoáng sạch sẽ.\r\n\r\nKhông cần nhiều thao tác bạn chỉ cần ấn nhẹ một lần là có thể nắp hai mặt của toilets lại với nhau dù thú cưng có dùng miệng cắn hay đùa nghịch thì mặt trên và dưới của toilet cũng không bị tách rời.\r\n\r\nMặt dưới tiếp xúc với sản nhà có để bằng cao su giúp chống trơn trượt.\r\n\r\nBạn có thể dễ dàng tách rời và vệ sinh sản phẩm, có thể sử dụng cả tấm lót vệ sinh.', 10, 'Pi Pi Hung', 90000),
+(111, NULL, 6, 'LỒNG CHÓ MÈO CAO CẤP D198', 'http://lonapetsdreamland.vn/Media/Product/200516104736/d198.jpg', 3500000, 'Khay vệ sinh lưới lót bỉm cho chó\r\nNguồn gốc:Hàn Quốc\r\nThương hiệu: Purmipet\r\nĐối tượng:dùng cho chó vừa và nhỏ\r\nMàu sắc: Xanh lá\r\nKích thước: 51cm x 41cm\r\nCông dụng sản phẩm:\r\n\r\nKhi đi tiểu tiện toilet sẽ nhanh chóng chảy xuống dưới không dính vào chân của vật nuôi đồng thời  toilet có khoảng không giữa mặt trên và dưới giúp bề mặt phía trên khô thoáng sạch sẽ.\r\n\r\nKhông cần nhiều thao tác bạn chỉ cần ấn nhẹ một lần là có thể nắp hai mặt của toilets lại với nhau dù thú cưng có dùng miệng cắn hay đùa nghịch thì mặt trên và dưới của toilet cũng không bị tách rời.\r\n\r\nMặt dưới tiếp xúc với sản nhà có để bằng cao su giúp chống trơn trượt.\r\n\r\nBạn có thể dễ dàng tách rời và vệ sinh sản phẩm, có thể sử dụng cả tấm lót vệ sinh.', 10, 'Pi Pi Hung', 90000),
+(112, NULL, 6, 'PURMI HÀNG RÀO MAGIC 10 TẤM', 'http://lonapetsdreamland.vn/Media/Product/200516115510/10tam.jpg', 3500000, 'Khay vệ sinh lưới lót bỉm cho chó\r\nNguồn gốc:Hàn Quốc\r\nThương hiệu: Purmipet\r\nĐối tượng:dùng cho chó vừa và nhỏ\r\nMàu sắc: Xanh lá\r\nKích thước: 51cm x 41cm\r\nCông dụng sản phẩm:\r\n\r\nKhi đi tiểu tiện toilet sẽ nhanh chóng chảy xuống dưới không dính vào chân của vật nuôi đồng thời  toilet có khoảng không giữa mặt trên và dưới giúp bề mặt phía trên khô thoáng sạch sẽ.\r\n\r\nKhông cần nhiều thao tác bạn chỉ cần ấn nhẹ một lần là có thể nắp hai mặt của toilets lại với nhau dù thú cưng có dùng miệng cắn hay đùa nghịch thì mặt trên và dưới của toilet cũng không bị tách rời.\r\n\r\nMặt dưới tiếp xúc với sản nhà có để bằng cao su giúp chống trơn trượt.\r\n\r\nBạn có thể dễ dàng tách rời và vệ sinh sản phẩm, có thể sử dụng cả tấm lót vệ sinh.', 10, 'Pi Pi Hung', 90000),
+(113, NULL, 6, 'PURMI NHÀ Ở', 'http://lonapetsdreamland.vn/Media/Product/200516112900/nh%C3%A0.jpg', 3500000, 'Khay vệ sinh lưới lót bỉm cho chó\r\nNguồn gốc:Hàn Quốc\r\nThương hiệu: Purmipet\r\nĐối tượng:dùng cho chó vừa và nhỏ\r\nMàu sắc: Xanh lá\r\nKích thước: 51cm x 41cm\r\nCông dụng sản phẩm:\r\n\r\nKhi đi tiểu tiện toilet sẽ nhanh chóng chảy xuống dưới không dính vào chân của vật nuôi đồng thời  toilet có khoảng không giữa mặt trên và dưới giúp bề mặt phía trên khô thoáng sạch sẽ.\r\n\r\nKhông cần nhiều thao tác bạn chỉ cần ấn nhẹ một lần là có thể nắp hai mặt của toilets lại với nhau dù thú cưng có dùng miệng cắn hay đùa nghịch thì mặt trên và dưới của toilet cũng không bị tách rời.\r\n\r\nMặt dưới tiếp xúc với sản nhà có để bằng cao su giúp chống trơn trượt.\r\n\r\nBạn có thể dễ dàng tách rời và vệ sinh sản phẩm, có thể sử dụng cả tấm lót vệ sinh.', 10, 'Pi Pi Hung', 90000),
+(114, NULL, 6, 'TẤM LÓT VỆ SINH THAN HOẠT TÍNH 40*50mm (50M - 100M', 'http://lonapetsdreamland.vn/Media/Product/200516115956/talot.jpg', 3500000, 'Khay vệ sinh lưới lót bỉm cho chó\r\nNguồn gốc:Hàn Quốc\r\nThương hiệu: Purmipet\r\nĐối tượng:dùng cho chó vừa và nhỏ\r\nMàu sắc: Xanh lá\r\nKích thước: 51cm x 41cm\r\nCông dụng sản phẩm:\r\n\r\nKhi đi tiểu tiện toilet sẽ nhanh chóng chảy xuống dưới không dính vào chân của vật nuôi đồng thời  toilet có khoảng không giữa mặt trên và dưới giúp bề mặt phía trên khô thoáng sạch sẽ.\r\n\r\nKhông cần nhiều thao tác bạn chỉ cần ấn nhẹ một lần là có thể nắp hai mặt của toilets lại với nhau dù thú cưng có dùng miệng cắn hay đùa nghịch thì mặt trên và dưới của toilet cũng không bị tách rời.\r\n\r\nMặt dưới tiếp xúc với sản nhà có để bằng cao su giúp chống trơn trượt.\r\n\r\nBạn có thể dễ dàng tách rời và vệ sinh sản phẩm, có thể sử dụng cả tấm lót vệ sinh.', 10, 'Pi Pi Hung', 90000),
+(115, NULL, 6, 'LỒNG D65', 'http://lonapetsdreamland.vn/Media/Product/200516105414/d65.jpg', 3500000, 'Khay vệ sinh lưới lót bỉm cho chó\r\nNguồn gốc:Hàn Quốc\r\nThương hiệu: Purmipet\r\nĐối tượng:dùng cho chó vừa và nhỏ\r\nMàu sắc: Xanh lá\r\nKích thước: 51cm x 41cm\r\nCông dụng sản phẩm:\r\n\r\nKhi đi tiểu tiện toilet sẽ nhanh chóng chảy xuống dưới không dính vào chân của vật nuôi đồng thời  toilet có khoảng không giữa mặt trên và dưới giúp bề mặt phía trên khô thoáng sạch sẽ.\r\n\r\nKhông cần nhiều thao tác bạn chỉ cần ấn nhẹ một lần là có thể nắp hai mặt của toilets lại với nhau dù thú cưng có dùng miệng cắn hay đùa nghịch thì mặt trên và dưới của toilet cũng không bị tách rời.\r\n\r\nMặt dưới tiếp xúc với sản nhà có để bằng cao su giúp chống trơn trượt.\r\n\r\nBạn có thể dễ dàng tách rời và vệ sinh sản phẩm, có thể sử dụng cả tấm lót vệ sinh.', 10, 'Pi Pi Hung', 90000),
+(116, NULL, 6, 'PURMI HÀNG RÀO MAGIC 6 TẤM XÁM', 'http://lonapetsdreamland.vn/Media/Product/200516115314/6tam.jpg', 3500000, 'Khay vệ sinh lưới lót bỉm cho chó\r\nNguồn gốc:Hàn Quốc\r\nThương hiệu: Purmipet\r\nĐối tượng:dùng cho chó vừa và nhỏ\r\nMàu sắc: Xanh lá\r\nKích thước: 51cm x 41cm\r\nCông dụng sản phẩm:\r\n\r\nKhi đi tiểu tiện toilet sẽ nhanh chóng chảy xuống dưới không dính vào chân của vật nuôi đồng thời  toilet có khoảng không giữa mặt trên và dưới giúp bề mặt phía trên khô thoáng sạch sẽ.\r\n\r\nKhông cần nhiều thao tác bạn chỉ cần ấn nhẹ một lần là có thể nắp hai mặt của toilets lại với nhau dù thú cưng có dùng miệng cắn hay đùa nghịch thì mặt trên và dưới của toilet cũng không bị tách rời.\r\n\r\nMặt dưới tiếp xúc với sản nhà có để bằng cao su giúp chống trơn trượt.\r\n\r\nBạn có thể dễ dàng tách rời và vệ sinh sản phẩm, có thể sử dụng cả tấm lót vệ sinh.', 10, 'Pi Pi Hung', 90000),
+(117, NULL, 6, 'CHUỒNG VAY 55*57 (KẼM ĐEN -TĨNH ĐIỆN)', 'http://lonapetsdreamland.vn/Media/Product/200516120553/vay.png', 3500000, 'Khay vệ sinh lưới lót bỉm cho chó\r\nNguồn gốc:Hàn Quốc\r\nThương hiệu: Purmipet\r\nĐối tượng:dùng cho chó vừa và nhỏ\r\nMàu sắc: Xanh lá\r\nKích thước: 51cm x 41cm\r\nCông dụng sản phẩm:\r\n\r\nKhi đi tiểu tiện toilet sẽ nhanh chóng chảy xuống dưới không dính vào chân của vật nuôi đồng thời  toilet có khoảng không giữa mặt trên và dưới giúp bề mặt phía trên khô thoáng sạch sẽ.\r\n\r\nKhông cần nhiều thao tác bạn chỉ cần ấn nhẹ một lần là có thể nắp hai mặt của toilets lại với nhau dù thú cưng có dùng miệng cắn hay đùa nghịch thì mặt trên và dưới của toilet cũng không bị tách rời.\r\n\r\nMặt dưới tiếp xúc với sản nhà có để bằng cao su giúp chống trơn trượt.\r\n\r\nBạn có thể dễ dàng tách rời và vệ sinh sản phẩm, có thể sử dụng cả tấm lót vệ sinh.', 10, 'Pi Pi Hung', 90000),
+(118, NULL, 7, 'Giường ngủ cho chó mèo bằng gỗ size (Size S) | Chu', 'https://chimgogo.com/wp-content/uploads/2019/05/CGG-TI-GTC-002-00-1-e1566376561354.jpg', 650000, 'Giường ngủ cho chó giúp xua tan bệnh về da.\r\n\r\nKích thước: Dài 50, rộng 35, cao 27 (cm). Phù hợp với mèo hoặc các dòng cho nhỏ như: Phốc, Chinhuahua, Bắc Kinh lai Nhật, vv…\r\n\r\nChất liệu: Gỗ tự nhiên kết hợp gỗ công nghiệp.\r\n\r\nMàu sắc: Đa dạng. Trong trường hợp bạn muốn sơn màu theo ý thích như: Trắng, Hồng, Vàng, Cam, Xanh, vv…thì phát sinh phụ phí sơn.', 10, 'PI Pi Hung', 100000),
+(119, NULL, 7, 'Giường chó sục Jack Russell J1 | Chuồng chó | Lồng', 'https://chimgogo.com/wp-content/uploads/2021/04/il_794xN.2958197470_1s9y-e1619259502477.jpg', 650000, 'Giường ngủ cho chó giúp xua tan bệnh về da.\r\n\r\nKích thước: Dài 50, rộng 35, cao 27 (cm). Phù hợp với mèo hoặc các dòng cho nhỏ như: Phốc, Chinhuahua, Bắc Kinh lai Nhật, vv…\r\n\r\nChất liệu: Gỗ tự nhiên kết hợp gỗ công nghiệp.\r\n\r\nMàu sắc: Đa dạng. Trong trường hợp bạn muốn sơn màu theo ý thích như: Trắng, Hồng, Vàng, Cam, Xanh, vv…thì phát sinh phụ phí sơn.', 10, 'PI Pi Hung', 100000),
+(120, NULL, 7, 'Nhà cho mèo bằng gỗ 3 tầng | Chuồng mèo | Lồng mèo', 'https://chimgogo.com/wp-content/uploads/2022/04/download-e1649500127373.jpg', 650000, 'Giường ngủ cho chó giúp xua tan bệnh về da.\r\n\r\nKích thước: Dài 50, rộng 35, cao 27 (cm). Phù hợp với mèo hoặc các dòng cho nhỏ như: Phốc, Chinhuahua, Bắc Kinh lai Nhật, vv…\r\n\r\nChất liệu: Gỗ tự nhiên kết hợp gỗ công nghiệp.\r\n\r\nMàu sắc: Đa dạng. Trong trường hợp bạn muốn sơn màu theo ý thích như: Trắng, Hồng, Vàng, Cam, Xanh, vv…thì phát sinh phụ phí sơn.', 10, 'PI Pi Hung', 100000),
+(121, NULL, 7, 'Giường ngủ cho mèo bằng gỗ | Chuồng mèo | nhà mèo', 'https://chimgogo.com/wp-content/uploads/2022/04/002-600x515.jpg', 650000, 'Giường ngủ cho chó giúp xua tan bệnh về da.\r\n\r\nKích thước: Dài 50, rộng 35, cao 27 (cm). Phù hợp với mèo hoặc các dòng cho nhỏ như: Phốc, Chinhuahua, Bắc Kinh lai Nhật, vv…\r\n\r\nChất liệu: Gỗ tự nhiên kết hợp gỗ công nghiệp.\r\n\r\nMàu sắc: Đa dạng. Trong trường hợp bạn muốn sơn màu theo ý thích như: Trắng, Hồng, Vàng, Cam, Xanh, vv…thì phát sinh phụ phí sơn.', 10, 'PI Pi Hung', 100000),
+(122, NULL, 7, 'Chuồng chó Poodle P2 | Giường chó | Lồng chó', 'https://chimgogo.com/wp-content/uploads/2021/04/il_794xN.2639073957_abaq-768x768.jpg', 650000, 'Giường ngủ cho chó giúp xua tan bệnh về da.\r\n\r\nKích thước: Dài 50, rộng 35, cao 27 (cm). Phù hợp với mèo hoặc các dòng cho nhỏ như: Phốc, Chinhuahua, Bắc Kinh lai Nhật, vv…\r\n\r\nChất liệu: Gỗ tự nhiên kết hợp gỗ công nghiệp.\r\n\r\nMàu sắc: Đa dạng. Trong trường hợp bạn muốn sơn màu theo ý thích như: Trắng, Hồng, Vàng, Cam, Xanh, vv…thì phát sinh phụ phí sơn.', 10, 'PI Pi Hung', 100000),
+(123, NULL, 7, 'Nhà cho mèo hình ngôi nhà khung sắt | Nhà cho chó ', 'https://chimgogo.com/wp-content/uploads/2022/02/3ac5d6369ac2569c0fd3-e1645435764894.jpg', 650000, 'Giường ngủ cho chó giúp xua tan bệnh về da.\r\n\r\nKích thước: Dài 50, rộng 35, cao 27 (cm). Phù hợp với mèo hoặc các dòng cho nhỏ như: Phốc, Chinhuahua, Bắc Kinh lai Nhật, vv…\r\n\r\nChất liệu: Gỗ tự nhiên kết hợp gỗ công nghiệp.\r\n\r\nMàu sắc: Đa dạng. Trong trường hợp bạn muốn sơn màu theo ý thích như: Trắng, Hồng, Vàng, Cam, Xanh, vv…thì phát sinh phụ phí sơn.', 10, 'PI Pi Hung', 100000),
+(124, NULL, 7, 'Giường chó sục Jack Russell J2 | Chuồng chó | Lồng', 'https://chimgogo.com/wp-content/uploads/2021/04/il_794xN.2832215640_5mc9-e1619259426624.jpg', 650000, 'Giường ngủ cho chó giúp xua tan bệnh về da.\r\n\r\nKích thước: Dài 50, rộng 35, cao 27 (cm). Phù hợp với mèo hoặc các dòng cho nhỏ như: Phốc, Chinhuahua, Bắc Kinh lai Nhật, vv…\r\n\r\nChất liệu: Gỗ tự nhiên kết hợp gỗ công nghiệp.\r\n\r\nMàu sắc: Đa dạng. Trong trường hợp bạn muốn sơn màu theo ý thích như: Trắng, Hồng, Vàng, Cam, Xanh, vv…thì phát sinh phụ phí sơn.', 10, 'PI Pi Hung', 100000),
+(125, NULL, 7, 'KỆ CHO MÈO 40CM', 'https://chimgogo.com/wp-content/uploads/2020/08/Platform-02-e1598236214909.jpg', 650000, 'Giường ngủ cho chó giúp xua tan bệnh về da.\r\n\r\nKích thước: Dài 50, rộng 35, cao 27 (cm). Phù hợp với mèo hoặc các dòng cho nhỏ như: Phốc, Chinhuahua, Bắc Kinh lai Nhật, vv…\r\n\r\nChất liệu: Gỗ tự nhiên kết hợp gỗ công nghiệp.\r\n\r\nMàu sắc: Đa dạng. Trong trường hợp bạn muốn sơn màu theo ý thích như: Trắng, Hồng, Vàng, Cam, Xanh, vv…thì phát sinh phụ phí sơn.', 10, 'PI Pi Hung', 100000),
+(126, NULL, 8, 'Quần áo cho chó mèo Mã QACC1', 'https://vietgiftmarket.com/wp-content/uploads/2018/10/quan-ao-cho-cho-meo-ma-qacc1.jpg', 54000, 'Quần áo cho chó mèo Mã QACC1 hiện shop có các size:\r\n\r\nXS: Phù hợp với cún 3kg\r\n\r\nS: Phù hợp với cún 3 – 5kg\r\n\r\nM: Phù hợp với cún 6 – 7kg\r\n\r\nSản phẩm được làm bằng chất vải đẹp, trọng lượng khoảng 0,15kg.', 10, 'Pi Pi hung', 15000),
+(127, NULL, 8, 'Quần Áo Cho Chó – Mã QACC25', 'https://vietgiftmarket.com/wp-content/uploads/2019/03/quan-ao-cho-cho-ma-qacc25.jpg', 54000, 'Quần áo cho chó mèo Mã QACC1 hiện shop có các size:\r\n\r\nXS: Phù hợp với cún 3kg\r\n\r\nS: Phù hợp với cún 3 – 5kg\r\n\r\nM: Phù hợp với cún 6 – 7kg\r\n\r\nSản phẩm được làm bằng chất vải đẹp, trọng lượng khoảng 0,15kg.', 10, 'Pi Pi hung', 15000),
+(128, NULL, 8, 'Bộ Quần Áo Cho Chó Mèo – Mã QACC10', 'https://vietgiftmarket.com/wp-content/uploads/2018/10/bo-quan-ao-cho-cho-ma-qacc10.jpg', 54000, 'Quần áo cho chó mèo Mã QACC1 hiện shop có các size:\r\n\r\nXS: Phù hợp với cún 3kg\r\n\r\nS: Phù hợp với cún 3 – 5kg\r\n\r\nM: Phù hợp với cún 6 – 7kg\r\n\r\nSản phẩm được làm bằng chất vải đẹp, trọng lượng khoảng 0,15kg.', 10, 'Pi Pi hung', 15000),
+(129, NULL, 8, 'Quần áo cho chó Mã QACC4', 'https://vietgiftmarket.com/wp-content/uploads/2018/10/quan-ao-cho-cho-ma-qacc4.jpg', 54000, 'Quần áo cho chó mèo Mã QACC1 hiện shop có các size:\r\n\r\nXS: Phù hợp với cún 3kg\r\n\r\nS: Phù hợp với cún 3 – 5kg\r\n\r\nM: Phù hợp với cún 6 – 7kg\r\n\r\nSản phẩm được làm bằng chất vải đẹp, trọng lượng khoảng 0,15kg.', 10, 'Pi Pi hung', 15000),
+(130, NULL, 8, 'Bộ quần áo cho chó bằng len Mã QACC16', 'https://vietgiftmarket.com/wp-content/uploads/2018/10/bo-quan-ao-cho-cho-bang-len-ma-qacc16.jpg', 54000, 'Quần áo cho chó mèo Mã QACC1 hiện shop có các size:\r\n\r\nXS: Phù hợp với cún 3kg\r\n\r\nS: Phù hợp với cún 3 – 5kg\r\n\r\nM: Phù hợp với cún 6 – 7kg\r\n\r\nSản phẩm được làm bằng chất vải đẹp, trọng lượng khoảng 0,15kg.', 10, 'Pi Pi hung', 15000),
+(131, NULL, 8, 'Bộ quần áo cho chó Mã QACC13', 'https://vietgiftmarket.com/wp-content/uploads/2018/10/bo-quan-ao-cho-cho-ma-qacc13.jpg', 54000, 'Quần áo cho chó mèo Mã QACC1 hiện shop có các size:\r\n\r\nXS: Phù hợp với cún 3kg\r\n\r\nS: Phù hợp với cún 3 – 5kg\r\n\r\nM: Phù hợp với cún 6 – 7kg\r\n\r\nSản phẩm được làm bằng chất vải đẹp, trọng lượng khoảng 0,15kg.', 10, 'Pi Pi hung', 15000),
+(132, NULL, 8, 'Quần Áo Cho Chó – Mã QACC23', 'https://vietgiftmarket.com/wp-content/uploads/2019/03/quan-ao-cho-cho-ma-qacc23.jpg', 54000, 'Quần áo cho chó mèo Mã QACC1 hiện shop có các size:\r\n\r\nXS: Phù hợp với cún 3kg\r\n\r\nS: Phù hợp với cún 3 – 5kg\r\n\r\nM: Phù hợp với cún 6 – 7kg\r\n\r\nSản phẩm được làm bằng chất vải đẹp, trọng lượng khoảng 0,15kg.', 10, 'Pi Pi hung', 15000),
+(133, NULL, 8, 'Quần Áo Cho Chó – Mã QACC26', 'https://vietgiftmarket.com/wp-content/uploads/2019/03/quan-ao-cho-cho-ma-qacc26.jpg', 54000, 'Quần áo cho chó mèo Mã QACC1 hiện shop có các size:\r\n\r\nXS: Phù hợp với cún 3kg\r\n\r\nS: Phù hợp với cún 3 – 5kg\r\n\r\nM: Phù hợp với cún 6 – 7kg\r\n\r\nSản phẩm được làm bằng chất vải đẹp, trọng lượng khoảng 0,15kg.', 10, 'Pi Pi hung', 15000);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `product_givepet`
+--
+
+CREATE TABLE `product_givepet` (
+  `product_givepet_id` bigint(20) NOT NULL,
+  `catergoty_givepet_id` bigint(20) NOT NULL,
+  `product_givepet_name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `product_givepet_image` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `product_givepet_price` double DEFAULT NULL,
+  `product_givepet_description` text CHARACTER SET utf8 DEFAULT NULL,
+  `product_givepet_quantity` int(11) DEFAULT NULL,
+  `product_givepet_provider` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `product_givepet_buy` double DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `product_givepet`
+--
+
+INSERT INTO `product_givepet` (`product_givepet_id`, `catergoty_givepet_id`, `product_givepet_name`, `product_givepet_image`, `product_givepet_price`, `product_givepet_description`, `product_givepet_quantity`, `product_givepet_provider`, `product_givepet_buy`) VALUES
+(3000, 8, 'Vòng cổ cao su gắn chuông ', 'https://bizweb.dktcdn.net/100/307/433/products/vong-co-cao-su-gan-chuong-danh-cho-cho-meo-cutepets.jpg?v=1591193271953', 250000, '+ Loại Rộng 1cm: Dành cho thú cưng chu vi cổ từ 15 - 25cm\r\n+ Loại Rộng 1.5cm: Dành cho thú cưng chu vi cổ từ 20 - 29cm\r\n>>> Chọn Size ưng ý rồi Ib shop chọn màu nhé!\r\n   Vòng cổ chuông với thiết kế dày dặn và chắc chắn, chiếc vòng cổ này sẽ nằm thật gọn gàng và êm ái trên cổ chú thú cưng của bạn, sẵn sàng cho mọi chuyến đi dạo hoặc chạy bộ đầy hứng khởi phía trước.\r\n+ Ngoài tác dụng giúp bạn giữ chặt và theo sát chú thú cưng của mình, thời trang của chiếc vòng cổ còn là điểm nhấn nổi bật để chú thú cưng của bạn trông thật “sành điệu”.\r\n+ Vòng Cổ Chuông màu sắc cho vật nuôi, có chuông kêu leng keng giúp cho bạn biết chú thú cưng của mình đang ở đâu, giúp cho vật nuôi không bị lạc', 10, 'Pi Pi Hùng', 10000),
+(3001, 8, 'Vòng cổ yếm nơ cute cho chó mèo - CutePets', 'https://bizweb.dktcdn.net/thumb/large/100/307/433/products/vong-co-yem-no-cute-cho-cho-meo-cutepets.jpg?v=1584768358277', 45000, '- Kích Thước:  Bản dây rộng 1cm dành cho thú cưng Chu vi vòng cổ :  25 - 33cm\r\n\r\n+ Vòng cổ yếm nơ cute cho thú cưng với thiết kế dày dặn và chắc chắn, chiếc vòng cổ này sẽ nằm thật gọn gàng và êm ái trên cổ chú thú cưng của bạn, sẵn sàng cho mọi chuyến đi dạo hoặc chạy bộ đầy hứng khởi phía trước.\r\n+ Ngoài tác dụng giúp bạn giữ chặt và theo sát chú thú cưng của mình, thời trang của chiếc vòng cổ còn là điểm nhấn nổi bật để chú thú cưng của bạn trông thật “sành điệu”.\r\n+ Vòng cổ yếm nơ cute có nhiều màu sắc cho vật nuôi, giúp cho bạn biết chú thú cưng của mình đang ở đâu, giúp cho vật nuôi không bị lạc,', 10, 'Pi Pi Hùng', 10000);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `ratings`
+--
+
+CREATE TABLE `ratings` (
+  `rating_id` bigint(20) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `product_id` bigint(20) DEFAULT NULL,
+  `product_givepet_id` bigint(20) DEFAULT NULL,
+  `ratings` bigint(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `ratings`
+--
+
+INSERT INTO `ratings` (`rating_id`, `user_id`, `product_id`, `product_givepet_id`, `ratings`) VALUES
+(52, 54, 57, NULL, 5),
+(54, 64, 5, NULL, 3),
+(56, 66, 16, NULL, 4),
+(57, 54, 3, NULL, 5),
+(58, 54, 11, NULL, 4),
+(59, 54, 74, NULL, 5),
+(60, 67, 1, NULL, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `recommend`
+--
+
+CREATE TABLE `recommend` (
+  `id_Recommend` bigint(20) NOT NULL,
+  `product_id` bigint(20) NOT NULL,
+  `loai_Recommend` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `recommend`
+--
+
+INSERT INTO `recommend` (`id_Recommend`, `product_id`, `loai_Recommend`) VALUES
+(256, 5, 5),
+(257, 2, 5),
+(258, 3, 5),
+(259, 5, 5),
+(260, 2, 5),
+(261, 3, 5),
+(262, 5, 5),
+(263, 2, 5),
+(264, 3, 5),
+(265, 5, 5),
+(266, 2, 5),
+(267, 3, 5),
+(269, 5, 5),
+(270, 2, 5),
+(271, 3, 5),
+(272, 2, 2),
+(273, 3, 2),
+(274, 1, 2),
+(275, 10, 10),
+(276, 8, 10),
+(277, 9, 10),
+(278, 8, 8),
+(279, 7, 8),
+(280, 9, 8),
+(281, 21, 21),
+(282, 22, 21),
+(283, 20, 21),
+(284, 21, 21),
+(285, 22, 21),
+(286, 23, 21),
+(287, 74, 74),
+(288, 11, 74),
+(289, 91, 74),
+(290, 65, 65),
+(291, 83, 65),
+(292, 74, 65),
+(293, 65, 65),
+(294, 5, 65),
+(295, 74, 65),
+(296, 91, 65),
+(297, 85, 85),
+(298, 74, 85),
+(299, 91, 85),
+(300, 85, 85),
+(301, 76, 85),
+(302, 66, 66),
+(303, 76, 66),
+(304, 66, 66),
+(305, 76, 66),
+(306, 5, 5),
+(307, 2, 5),
+(308, 3, 5),
+(309, 2, 2),
+(310, 3, 2),
+(311, 1, 2),
+(312, 10, 10),
+(313, 8, 10),
+(314, 9, 10),
+(315, 8, 8),
+(316, 7, 8),
+(317, 9, 8),
+(318, 21, 21),
+(319, 22, 21),
+(320, 20, 21),
+(321, 21, 21),
+(322, 22, 21),
+(323, 23, 21),
+(324, 74, 74),
+(325, 11, 74),
+(326, 91, 74),
+(327, 65, 65),
+(328, 83, 65),
+(329, 74, 65),
+(330, 65, 65),
+(331, 5, 65),
+(332, 74, 65),
+(333, 91, 65),
+(334, 85, 85),
+(335, 74, 85),
+(336, 91, 85),
+(337, 85, 85),
+(338, 76, 85),
+(339, 66, 66),
+(340, 76, 66),
+(341, 66, 66),
+(342, 76, 66),
+(343, 5, 5),
+(344, 2, 5),
+(345, 3, 5),
+(346, 2, 2),
+(347, 3, 2),
+(348, 1, 2),
+(349, 10, 10),
+(350, 8, 10),
+(351, 9, 10),
+(352, 8, 8),
+(353, 7, 8),
+(354, 9, 8),
+(355, 21, 21),
+(356, 22, 21),
+(357, 20, 21),
+(358, 21, 21),
+(359, 22, 21),
+(360, 23, 21),
+(361, 74, 74),
+(362, 11, 74),
+(363, 91, 74),
+(364, 65, 65),
+(365, 83, 65),
+(366, 74, 65),
+(367, 65, 65),
+(368, 5, 65),
+(369, 74, 65),
+(370, 91, 65),
+(371, 85, 85),
+(372, 74, 85),
+(373, 91, 85),
+(374, 85, 85),
+(375, 76, 85),
+(376, 66, 66),
+(377, 76, 66),
+(378, 66, 66),
+(379, 76, 66),
+(380, 5, 5),
+(381, 2, 5),
+(382, 3, 5),
+(383, 2, 2),
+(384, 3, 2),
+(385, 1, 2),
+(386, 10, 10),
+(387, 8, 10),
+(388, 9, 10),
+(389, 8, 8),
+(390, 7, 8),
+(391, 9, 8),
+(392, 21, 21),
+(393, 22, 21),
+(394, 20, 21),
+(395, 21, 21),
+(396, 22, 21),
+(397, 23, 21),
+(398, 74, 74),
+(399, 11, 74),
+(400, 91, 74),
+(401, 65, 65),
+(402, 83, 65),
+(403, 74, 65),
+(404, 65, 65),
+(405, 5, 65),
+(406, 74, 65),
+(407, 91, 65),
+(408, 85, 85),
+(409, 74, 85),
+(410, 91, 85),
+(411, 85, 85),
+(412, 76, 85),
+(413, 66, 66),
+(414, 76, 66),
+(415, 66, 66),
+(416, 76, 66);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `status_product`
+--
+
+CREATE TABLE `status_product` (
+  `status_id` bigint(20) NOT NULL,
+  `product_id` bigint(20) NOT NULL,
+  `statusproduct` varchar(150) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `usergroup`
+--
+
+CREATE TABLE `usergroup` (
+  `usergroup_id` int(11) NOT NULL,
+  `usergroup_name` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `usergroup`
+--
+
+INSERT INTO `usergroup` (`usergroup_id`, `usergroup_name`) VALUES
+(1, 'customer'),
+(2, 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` bigint(20) NOT NULL,
+  `user_email` varchar(255) DEFAULT NULL,
+  `user_pass` varchar(255) DEFAULT NULL,
+  `user_name` varchar(180) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `usergroup_id` int(11) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `GioiTinh` int(1) DEFAULT NULL,
+  `petlove` varchar(200) DEFAULT NULL,
+  `loaiKH` int(20) DEFAULT NULL,
+  `DiaChi` text DEFAULT NULL,
+  `NgaySinh` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `users`
+--
+
+INSERT INTO `users` (`user_id`, `user_email`, `user_pass`, `user_name`, `usergroup_id`, `phone`, `GioiTinh`, `petlove`, `loaiKH`, `DiaChi`, `NgaySinh`) VALUES
+(1, 'user@email.com', '123456', '\0', 1, NULL, 0, '', 0, '', NULL),
+(2, 'admin@email.com', '123456', 'Nguyễn Phi Hùng', 2, NULL, 0, '', 0, '', NULL),
+(3, 'user1@email.com', '123123', '\0', 1, '01652335156', 0, '', 0, '', NULL),
+(4, 'user2@email.com', '123123', '\0', 1, '123121212', 0, '', 0, '', NULL),
+(54, 'nguyenphihung3800@gmail.com', '123', 'Nguyễn Phi Hùng', 1, '0396476488', 0, 'Mèo', 1, '312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2000-08-30'),
+(55, 'nguyenphihung800@gmail.com', '123', 'Nguyễn Phi Hùng', 1, '0396476443', 0, NULL, 0, NULL, NULL),
+(56, 'adfasdf@gamil.com', '12', 'hùng', 1, '0396476443', 0, NULL, 0, NULL, NULL),
+(57, 'nguyenphihung00@gmail.com', '123', 'Nguyễn Phi Hùng', 1, '0396476443', 0, 'mèo', 0, 'bình dương', '2000-08-30'),
+(58, 'nguyenphihung380@gmail.com', '123', 'Nguyễn Phi ', 1, '0396476443', 0, 'mèo', 0, 'bình dương', '2000-08-30'),
+(59, 'hung1@gmail.com', '123', 'Phi Hùng', 1, '0396476443', 0, 'Chó,Mèo', 0, '312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2000-08-30'),
+(60, 'hung1@gmail', '123', 'hùng', 1, '0396476443', 0, NULL, 0, NULL, NULL),
+(61, 'pihung@gmail.com', '123', 'Phi Hùng', 1, '0396476443', 0, 'chó', 0, '312 Nguyễn Văn Lộng ,Chánh Lộc 7 ,Chánh Mỹ , Thủ Dầu Một , Bình Dương.', '2000-08-30'),
+(62, 'nguyenphihung3810@gmail.com', '123', 'hùng', 1, '0396476443', 0, NULL, 0, NULL, NULL),
+(63, 'nguyen@gmail.co', '123', 'hùng', 1, '0396476443', 0, NULL, 0, NULL, NULL),
+(64, 'abc123@gmail.com', '123', 'abc', 1, '0382768766', 0, NULL, 0, NULL, NULL),
+(65, 'abcd123@gmail.com', '123', 'abcef', 1, '0382768766', 0, 'chó', 0, '11/5a Tân hòa 2 , p.Hiệp Phú , TP.Thủ Đức', '2000-08-20'),
+(66, 'abcqw123@gmail.com', '123', 'pipi', 1, '0382768766', 1, 'chó', 0, '11/5a Tân hòa 2 , p.Hiệp Phú , TP.Thủ Đức', '2000-08-20'),
+(67, 'abc@gmail.com', '123', 'pipi', 1, '0382768766', 1, NULL, 0, '11/5a Tân hòa 2 , p.Hiệp Phú , TP.Thủ Đức', NULL);
+
+--
+-- Chỉ mục cho các bảng đã đổ
+--
+
+--
+-- Chỉ mục cho bảng `avgratings`
+--
+ALTER TABLE `avgratings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `bill`
+--
+ALTER TABLE `bill`
+  ADD PRIMARY KEY (`bill_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Chỉ mục cho bảng `bill_detail`
+--
+ALTER TABLE `bill_detail`
+  ADD PRIMARY KEY (`bill_detail_id`),
+  ADD KEY `bill_id` (`bill_id`),
+  ADD KEY `product_id` (`product_id`);
+
+--
+-- Chỉ mục cho bảng `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`category_id`);
+
+--
+-- Chỉ mục cho bảng `category_givepet`
+--
+ALTER TABLE `category_givepet`
+  ADD PRIMARY KEY (`catergoty_givepet_id`);
+
+--
+-- Chỉ mục cho bảng `comment`
+--
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`comment_id`),
+  ADD KEY `product_id` (`product_id`),
+  ADD KEY `product_givepet_id` (`product_givepet_id`);
+
+--
+-- Chỉ mục cho bảng `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`product_id`),
+  ADD KEY `category_id` (`category_id`),
+  ADD KEY `catergoty_givepet_id` (`catergoty_givepet_id`);
+
+--
+-- Chỉ mục cho bảng `product_givepet`
+--
+ALTER TABLE `product_givepet`
+  ADD PRIMARY KEY (`product_givepet_id`),
+  ADD KEY `catergoty_givepet_id` (`catergoty_givepet_id`);
+
+--
+-- Chỉ mục cho bảng `ratings`
+--
+ALTER TABLE `ratings`
+  ADD PRIMARY KEY (`rating_id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `product_id` (`product_id`),
+  ADD KEY `product_givepet_id` (`product_givepet_id`);
+
+--
+-- Chỉ mục cho bảng `recommend`
+--
+ALTER TABLE `recommend`
+  ADD PRIMARY KEY (`id_Recommend`),
+  ADD KEY `product_id` (`product_id`);
+
+--
+-- Chỉ mục cho bảng `status_product`
+--
+ALTER TABLE `status_product`
+  ADD PRIMARY KEY (`status_id`),
+  ADD KEY `product_id` (`product_id`);
+
+--
+-- Chỉ mục cho bảng `usergroup`
+--
+ALTER TABLE `usergroup`
+  ADD PRIMARY KEY (`usergroup_id`);
+
+--
+-- Chỉ mục cho bảng `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`),
+  ADD KEY `usergroup_id` (`usergroup_id`);
+
+--
+-- AUTO_INCREMENT cho các bảng đã đổ
+--
+
+--
+-- AUTO_INCREMENT cho bảng `avgratings`
+--
+ALTER TABLE `avgratings`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `bill`
+--
+ALTER TABLE `bill`
+  MODIFY `bill_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45466500;
+
+--
+-- AUTO_INCREMENT cho bảng `bill_detail`
+--
+ALTER TABLE `bill_detail`
+  MODIFY `bill_detail_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=398;
+
+--
+-- AUTO_INCREMENT cho bảng `category`
+--
+ALTER TABLE `category`
+  MODIFY `category_id` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT cho bảng `category_givepet`
+--
+ALTER TABLE `category_givepet`
+  MODIFY `catergoty_givepet_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT cho bảng `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `comment_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT cho bảng `product`
+--
+ALTER TABLE `product`
+  MODIFY `product_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1484425983394;
+
+--
+-- AUTO_INCREMENT cho bảng `ratings`
+--
+ALTER TABLE `ratings`
+  MODIFY `rating_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+
+--
+-- AUTO_INCREMENT cho bảng `recommend`
+--
+ALTER TABLE `recommend`
+  MODIFY `id_Recommend` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=417;
+
+--
+-- AUTO_INCREMENT cho bảng `status_product`
+--
+ALTER TABLE `status_product`
+  MODIFY `status_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT cho bảng `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+
+--
+-- Các ràng buộc cho các bảng đã đổ
+--
+
+--
+-- Các ràng buộc cho bảng `bill`
+--
+ALTER TABLE `bill`
+  ADD CONSTRAINT `bill_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `bill_detail`
+--
+ALTER TABLE `bill_detail`
+  ADD CONSTRAINT `bill_detail_ibfk_1` FOREIGN KEY (`bill_id`) REFERENCES `bill` (`bill_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `bill_detail_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `comment`
+--
+ALTER TABLE `comment`
+  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`product_givepet_id`) REFERENCES `product_givepet` (`product_givepet_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `product`
+--
+ALTER TABLE `product`
+  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`catergoty_givepet_id`) REFERENCES `category_givepet` (`catergoty_givepet_id`);
+
+--
+-- Các ràng buộc cho bảng `product_givepet`
+--
+ALTER TABLE `product_givepet`
+  ADD CONSTRAINT `product_givepet_ibfk_1` FOREIGN KEY (`catergoty_givepet_id`) REFERENCES `category_givepet` (`catergoty_givepet_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `ratings`
+--
+ALTER TABLE `ratings`
+  ADD CONSTRAINT `ratings_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ratings_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ratings_ibfk_3` FOREIGN KEY (`product_givepet_id`) REFERENCES `product_givepet` (`product_givepet_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `recommend`
+--
+ALTER TABLE `recommend`
+  ADD CONSTRAINT `recommend_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `status_product`
+--
+ALTER TABLE `status_product`
+  ADD CONSTRAINT `status_product_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`usergroup_id`) REFERENCES `usergroup` (`usergroup_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

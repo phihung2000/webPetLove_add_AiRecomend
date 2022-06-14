@@ -1,0 +1,4 @@
+<!-- Start --> 
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script> 
+<script src='http://duyquang.net/php/ruoibay/ruoi.js' type='text/javascript' var_1='true' var_2='false' var_3='false'></script> 
+<!-- End -->

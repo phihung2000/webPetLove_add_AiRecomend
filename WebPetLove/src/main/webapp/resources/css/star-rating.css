@@ -1,0 +1,124 @@
+.ratingstar {
+    float: left;
+    margin-top: 2%;
+}
+input.star { display: none; }
+ 
+label.star {
+    float: right;
+    padding: 2px;
+    font-size: 24px;
+    color: #FFFF99;
+    transition: all .2s;
+}
+input.star:checked ~ label.star:before {
+  content: '\f005';
+  color: #FD4;
+  transition: all .25s;
+}
+ 
+input.star-5:checked ~ label.star:before {
+  color: #FE7;
+  text-shadow: 0 0 20px #952;
+}
+ 
+input.star-1:checked ~ label.star:before { color: #F62; }
+ 
+label.star:hover { transform: rotate(-15deg) scale(1.3); }
+ 
+label.star:before {
+  content: '\f006';
+  font-family: FontAwesome;
+}
+/* css- button */
+.sendanhgia {
+    width: fit-content;
+}
+input.button-33.danhgia {
+    font-size: 14px;
+}
+/* show chart rating star*/
+.rating {
+  float: left;
+  width: 45%;
+  margin-right: 5%;
+  text-align: center;
+}
+
+.rating-num {
+  color: #333333;
+  font-size: 72px;
+  font-weight: 100;
+  line-height: 1em; 
+}
+
+.rating-stars {
+  font-size: 20px;
+  color: #E3E3E3;
+  margin-bottom: .5em;
+}
+.rating-stars .active {
+  color: #737373;
+}
+
+.rating-users {
+  font-size: 14px;
+}
+
+.histo {
+  float: left;
+  width: 50%;
+  font-size: 13px;
+}
+
+.histo-star {
+  float: left;
+  padding: 3px;
+
+}
+
+.histo-rate {
+  width: 100%;
+  display: block;
+  clear: both;
+}
+
+.bar-block {
+  margin-left: 5px;
+  color: black;
+  display: block;
+  float: left;
+  width: 75%;
+  position: relative;
+}
+
+.bar {
+  padding: 4px;
+  display: block;
+}
+
+#bar-five {
+  width: 0;
+  background-color: #9FC05A;
+}
+
+#bar-four {
+  width: 0;
+  background-color: #ADD633;
+}
+
+#bar-three {
+  width: 0;
+  background-color: #FFD834;
+}
+
+#bar-two {
+  width: 0;
+  background-color: #FFB234;
+}
+
+#bar-one {
+  width: 0;
+  background-color: #FF8B5A;
+}
+/* start avg*/

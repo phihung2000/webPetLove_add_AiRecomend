@@ -1,5 +1,5 @@
-# webPetLove_add_AiRecomend
-website have AI Recomend product , use Apriori 
+# Website PetLove add Ai Recomend
+## website have AI Recomend product , use Apriori 
 Tomcat : 9.0
 
 version : 1.0
@@ -15,4 +15,8 @@ http://localhost:8080/shop/allpet ( trang để cbi cho hệ thống khuyến ng
 http://localhost:8080/admin/login ( trang admin)
 file webpetlove.txt là file sql tải về đổi tên và chạy thứ tự theo relationship
 ![image](https://user-images.githubusercontent.com/65330451/143565579-994db2fc-fb0a-47e0-8359-83c290d2df55.png)
+
+## hình ảnh phần khuyến nghị sản phẩm cho khách hàng
+
+![image](https://drive.google.com/file/d/1SH_8-rArTMeM9diHXrwbE0PcJ2jHB_VX/view?usp=sharing)
 

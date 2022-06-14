@@ -18,5 +18,5 @@ file webpetlove.txt là file sql tải về đổi tên và chạy thứ tự th
 
 ## hình ảnh phần khuyến nghị sản phẩm cho khách hàng
 
-![image](https://drive.google.com/file/d/1SH_8-rArTMeM9diHXrwbE0PcJ2jHB_VX/view?usp=sharing)
+![image](https://github.com/phihung2000/webPetLove_add_AiRecomend/blob/main/aiwweb.png)
 
